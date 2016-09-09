@@ -9,12 +9,7 @@ endif
 
 let colors_name = "muratori"
 
-" Interesting colors
-" SlateBlue, DeepSkyBlue, BlueViolet
-
 " Normal should come first
-"Blue tint: #F8F8FF
-"Orange tint: #FEF1E0
 hi Normal		 guifg=#D8B07A guibg=Grey12
 hi NonText		 guifg=#607d8b guibg=Grey12
 
@@ -55,29 +50,23 @@ hi WarningMsg    guifg=Red2
 hi WildMenu      guibg=Yellow guifg=Black
 
 " Syntax highlighting
+"""""""""""""""""""""
 
-"Cold hue: #607d8b, #858E8F
-"Warm hue: Grey50
 hi Comment          guifg=#607d8b
-hi String           guifg=#2BAE2B
-hi Constant         guifg=#2BAE2B
+hi String           guifg=#6B8E23
+hi Constant         guifg=#6B8E23
 hi Operator         guifg=#B8860B
-"hi SyntaxChar       guifg=Black gui=None 
 
-" github -> #BA1D5D
 hi Statement        guifg=#B8860B gui=bold
 hi StorageClass     guifg=#B8860B gui=bold
 hi Identifier       guifg=#D8B07A
 hi Function         guifg=#D8B07A
-
-"CSharp
-"hi csClassOrStruct  guifg=#D8B07A
 
 hi Type	           guifg=#B8860B gui=bold
 hi PreProc          guifg=#D8B07A
 
 hi Special          guifg=#2BAE2B
 
-hi Directory     guifg=#B8860B gui=bold
+hi Directory        guifg=#B8860B gui=bold
 
 " vim: sw=2
