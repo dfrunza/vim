@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.ir set filetype=asm
+autocmd BufNewFile,BufRead *.ir set filetype=ir

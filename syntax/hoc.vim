@@ -16,10 +16,9 @@ syn sync lines=250
 syn keyword hocBoolean      true false
 syn keyword hocConditional  if else
 "syn keyword hocConstant	null
-syn keyword hocLabel        case goto return break
-syn keyword hocKeyword      proc struct module import var type of
-syn keyword hocType         array bool char int float void
-
+syn keyword hocLabel        case goto return break while for
+syn keyword hocKeyword      proc struct module import var type asm
+syn keyword hocType         bool char int real void
 
 syn keyword hocTodo contained	TODO FIXME XXX DEBUG NOTE
 
@@ -56,35 +55,35 @@ syn region hocComment	start="//"  end="\n" contains=hocTodo,hocSpaceError
 " For version 5.7 and earlier: only when not done already
 " For version 5.8 and later: only when an item doesn't have highlighting yet
 if version >= 508 || !exists("did_hoc_syn_inits")
-if version < 508
-let did_hoc_syn_inits = 1
-command -nargs=+ HiLink hi link <args>
-else
-command -nargs=+ HiLink hi def link <args>
-endif
+  if version < 508
+    let did_hoc_syn_inits = 1
+    command -nargs=+ HiLink hi link <args>
+  else
+    command -nargs=+ HiLink hi def link <args>
+  endif
 
-HiLink hocBoolean       Boolean
-HiLink hocComment       Comment
-HiLink hocConditional	  Conditional
-HiLink hocConstant      Constant
-HiLink hocFloat         Float
-HiLink hocNumber        Number
-HiLink hocOperator      Operator
-HiLink hocSpaceError    Error
-HiLink hocStatement     Statement
-HiLink hocString        String
-HiLink hocStringEscape  Special
-HiLink hocStringEscapeGPC	Special
-HiLink hocStringError   Error
-HiLink hocSymbolOperator  Operator
-HiLink hocTodo          Todo
-HiLink hocType          Type
-HiLink hocError         Error
-HiLink hocShowTab       Error
-HiLink hocLabel         Label
-HiLink hocKeyword       Statement
+  HiLink hocBoolean       Boolean
+  HiLink hocComment       Comment
+  HiLink hocConditional	  Conditional
+  HiLink hocConstant      Constant
+  HiLink hocFloat         Float
+  HiLink hocNumber        Number
+  HiLink hocOperator      Operator
+  HiLink hocSpaceError    Error
+  HiLink hocStatement     Statement
+  HiLink hocString        String
+  HiLink hocStringEscape  Special
+  HiLink hocStringEscapeGPC	Special
+  HiLink hocStringError   Error
+  HiLink hocSymbolOperator  Operator
+  HiLink hocTodo          Todo
+  HiLink hocType          Type
+  HiLink hocError         Error
+  HiLink hocShowTab       Error
+  HiLink hocLabel         Label
+  HiLink hocKeyword       Statement
 
-delcommand HiLink
+  delcommand HiLink
 endif
 
 

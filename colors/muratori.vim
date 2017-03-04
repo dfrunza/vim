@@ -10,7 +10,7 @@ endif
 let colors_name = "muratori"
 
 " Normal should come first
-hi Normal		 guifg=#D8B07A guibg=Grey12
+hi Normal		   guifg=#D8B07A guibg=Grey12
 hi NonText		 guifg=#607d8b guibg=Grey12
 
 hi Cursor       guifg=Black guibg=Green3
@@ -30,7 +30,7 @@ hi StatusLine   guifg=#191970 guibg=Grey65 gui=underline
 hi Pmenu         guifg=#191970 guibg=Grey65
 hi PmenuSel      guifg=Black guibg=#FFDAB9
 
-hi Search        guibg=#FF7F50 guifg=Black
+hi Search        guibg=Orange3
 hi MatchParen    guibg=#00008B
 hi Directory     guifg=#B8860B gui=None
 hi Title         gui=bold guifg=Magenta3
@@ -63,7 +63,7 @@ hi Statement        guifg=#B8860B gui=None
 hi StorageClass     guifg=#B8860B gui=None
 hi Identifier       guifg=#D8B07A
 hi Function         guifg=#D8B07A
-hi Type	           guifg=#B8860B gui=None
+hi Type	            guifg=#B8860B gui=None
 hi PreProc          guifg=#D8B07A
 
 " vim: sw=2
