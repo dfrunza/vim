@@ -2,16 +2,16 @@
 "set guifont=Consolas:h13:cANSI
 "set guifont=CamingoCode:h12:cANSI
 "set guifont=Hack:h11:cANSI
-"set guifont=Courier_New:h10:b:cANSI
-set guifont=Cousine:h10:b:cANSI
+set guifont=Courier_New:h10:cANSI
+"set guifont=Cousine:h10:b:cANSI
 
 " GUI options : menu, toolbar, scrollbars.
 " Add the 'm' letter to have the menu back.
 set guioptions=egrLt
 set statusline=%F
-set columns=174
-set lines=55
-winpos 360 0
+"set columns=174
+"set lines=55
+"winpos 360 0
 
 "tab character
 set shiftwidth=2 " indendation level
@@ -20,13 +20,22 @@ set softtabstop=0
 "Set noexpandtab if you want real tabs instead of spaces
 set expandtab
 
+" Disable
+" r       Automatically insert the current comment leader after hitting
+"         <Enter> in Insert mode.
+" o       Automatically insert the current comment leader after hitting 'o' or
+"         'O' in Normal mode.
+set formatoptions-=cro
+
 " Minimal number of lines to keep above and below buffer.
-set scrolloff=7
+"set scrolloff=7
 
 " Custom vim settings per file
 set modeline
 
 set nocursorline
+set guicursor+=a:blinkon0
+
 syntax on
 set hidden
 set number
@@ -41,6 +50,10 @@ set smartcase
 set incsearch
 set nowrap
 set clipboard=unnamed
+
+set winaltkeys=yes
+" This maps to Alt+A ! Go figure...
+nmap <M-Space> :simalt ~<CR>
 
 set fileformats+=dos
 
@@ -61,10 +74,11 @@ set nocompatible
 
 " Quickly edit/reload the vimrc file
 nmap <leader>ev :e $MYVIMRC<CR>
-nmap <leader>sv :so $MYVIMRC<CR>
+nmap <leader>sb :so $MYVIMRC<CR>
 
 " Color theme: evening, desert, slate, blue, delek.
-colors muratori
+"colors muratori
+colors BlueSmoke
 
 set textwidth=200
 filetype plugin on
@@ -79,7 +93,7 @@ set cinoptions+=(0)
 set foldmethod=marker
 set foldmarker=>>>,<<<
 
-set grepprg=grepw32.exe
+set grepprg=C:\MinGW\msys\1.0\bin\grep.exe
 
 " --fields=[+/-]flags
 "        a    Access (or export) of class members
@@ -96,6 +110,8 @@ set grepprg=grepw32.exe
 "        t    Type and name of a variable or typedef as "typeref:" field [enabled]
 let g:indexer_ctagsCommandLineOptions="--fields=+ksSlnz --C-kinds=+p --C++-kinds=+p"
 
+let g:AutoPairsCenterLine=0
+
 " C dev
 set makeprg=build.bat
 
@@ -103,20 +119,30 @@ set makeprg=build.bat
 "set errorformat=%f(%l\\,%c):\ %t%*[^\ ]\ CS%n:\ %m
 "set makeprg=msbuild\ /nologo\ /v:q\ /property:GenerateFullPaths=true
 
-nmap <leader>js :%!jq .<CR>:set filetype=json<CR>
+" disable the major annoyances
+nmap <F1> <nop>
+map q <nop>
+
 nmap <C-s> :w<CR>
 inoremap <S-CR> <Esc>
-"nmap <F1> :NERDTreeToggle<CR>
-nmap <F2> :Tlist<CR>
-nmap <F4> :wa<CR>:make!<CR>
-nmap <F5> :!deploy<CR><CR>
-map <leader>q <leader>bd<CR>
 
-nmap [[ :cprev<CR>
-nmap ]] :cnext<CR>
-nmap \\ :cc<CR>
+nmap <F4> :wa<CR>:make!<CR><CR>
+nmap <F8> :!deploy<CR><CR>
 
-let g:AutoPairsCenterLine=0
-let g:Tlist_Close_On_Select=0
-let g:Tlist_Use_Right_Window=1
+"nmap ga <Plug>(EasyAlign)
+"nmap ga <Plug>(EasyAlign)
+
+" BufExplorer
+"nmap <C-m> :ToggleBufExplorer<CR>
+nmap <Space> :ToggleBufExplorer<CR>
+nmap <C-q> :e.<CR>
+nmap <leader>q <leader>bd
+
+" TagList
+nmap <F2> :TlistToggle<CR>
+let g:Tlist_Close_On_Select=1
+let g:Tlist_Use_Right_Window=0
 let g:Tlist_GainFocus_On_ToggleOpen=1
+
+let g:netrw_banner=0
+let g:bufExplorerDefaultHelp=0
