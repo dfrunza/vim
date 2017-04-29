@@ -8,22 +8,17 @@ elseif exists("b:current_syntax")
   finish
 endif
 
-syn case ignore
-
-" Various #'s as defined by GAS ref manual sec 3.6.2.1
-" Technically, the first decNumber def is actually octal,
-" since the value of 0-7 octal is the same as 0-7 decimal,
-" I (Kevin) prefer to map it as decimal:
-syn match decNumber		"0\+[1-7]\=[\t\n$,; ]"
-syn match decNumber		"[1-9]\d*"
-
-syn keyword irTodo		contained TODO
-
-syn match irComment		"[#;!|].*" contains=irTodo
-
 syn case match
 
-syn keyword irDirective push pop load store add sub alloc label call return jumpz jumpnz goto halt
+syn match decNumber		"[0-9]\d*"
+syn keyword irTodo		contained TODO
+syn match irComment		"[#;!|].*" contains=irTodo
+
+syn keyword irDirective push pop load store alloc dup
+syn keyword irDirective print printnl
+syn keyword irDirective add sub mul div mod incr decr and or not neg
+syn keyword irDirective cmpeq cmpneq cmplss cmpgrt
+syn keyword irDirective jumpz jumpnz goto halt noop label call return enter leave
 syn keyword irRegister fp sp ip
 
 " Define the default highlighting.
@@ -48,7 +43,7 @@ if version >= 508 || !exists("did_ir_syn_inits")
   "HiLink irCond        PreCondit
   "HiLink irMacro       Macro
 
-  HiLink decNumber	Number
+  HiLink decNumber	Constant
 
   "HiLink irIdentifier	Identifier
   "HiLink irType        Type

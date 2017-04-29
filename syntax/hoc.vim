@@ -17,8 +17,8 @@ syn keyword hocBoolean      true false
 syn keyword hocConditional  if else
 "syn keyword hocConstant	null
 syn keyword hocLabel        case goto return break while for
-syn keyword hocKeyword      proc struct module import var type asm
-syn keyword hocType         bool char int real void
+syn keyword hocKeyword      proc struct module include var type print
+syn keyword hocType         bool char int float void
 
 syn keyword hocTodo contained	TODO FIXME XXX DEBUG NOTE
 
