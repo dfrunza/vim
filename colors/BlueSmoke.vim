@@ -17,7 +17,7 @@ let colors_name = "BlueSmoke"
 "Orange tint: #FEF1E0
 hi Normal		 guifg=Grey10 guibg=White
 
-hi Cursor       guifg=White	guibg=Black
+hi Cursor       guifg=White	guibg=Red
 hi lCursor      guifg=NONE guibg=Cyan
 
 "#338FFF

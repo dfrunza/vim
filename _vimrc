@@ -146,3 +146,16 @@ let g:Tlist_GainFocus_On_ToggleOpen=1
 
 let g:netrw_banner=0
 let g:bufExplorerDefaultHelp=0
+
+" Show the prototype of the tag under cursor.
+"
+" The idea is to yank the word under cursor into a register and then use
+" the contents of the register to create the command.
+" For example:
+"     "zyiw - will yank the word into z reg
+" (note that the double quote in "z is part of the name of the register)
+" Next we concatenate the register to a command string and execute it.
+"     :exe "/".@z.""<CR> - searches for string in "z reg
+" Alternately you can replace @z by <C-r>z which will directly replace z by its content.
+nmap <F1> "zyiw:exe "ts ".@z.""<CR>
+
