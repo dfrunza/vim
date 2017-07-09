@@ -14,10 +14,10 @@ syn match decNumber		"[0-9]\d*"
 syn keyword irTodo		contained TODO
 syn match irComment		"[#;!|].*" contains=irTodo
 
-syn keyword irDirective push pop load store alloc dup
+syn keyword irDirective push pushf pop load store alloc dup
 syn keyword irDirective print printnl
-syn keyword irDirective add sub mul div mod incr decr and or not neg
-syn keyword irDirective cmpeq cmpneq cmplss cmpgrt
+syn keyword irDirective add sub mul div addf subf mulf divf mod incr decr and or not neg negf
+syn keyword irDirective cmpeq cmpneq cmplss cmpgrt float_to_int int_to_float
 syn keyword irDirective jumpz jumpnz goto halt noop label call return enter leave
 syn keyword irRegister fp sp ip
 
