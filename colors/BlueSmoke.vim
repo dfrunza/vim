@@ -59,11 +59,11 @@ hi WildMenu      guibg=Yellow guifg=Black
 
 "Cold hue: #607d8b, #858E8F
 "Warm hue: Grey50
-hi Comment         guifg=#607d8b
-hi String          guifg=Red4
+hi Comment         guifg=Green4
+hi String          guifg=Green4
 hi Constant        guifg=Red4
-hi Operator        guifg=Cyan4
-hi SyntaxChar      guifg=Black gui=None
+hi Operator        guifg=Red4
+hi SyntaxChar      guifg=Cyan4 gui=None
 
 " github #BA1D5D
 hi Statement       guifg=Blue3 gui=None
