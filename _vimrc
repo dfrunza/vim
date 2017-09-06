@@ -2,8 +2,8 @@
 "set guifont=Consolas:h13:cANSI
 "set guifont=CamingoCode:h12:cANSI
 "set guifont=Hack:h11:cANSI
-set guifont=Courier_New:h10:cANSI
-"set guifont=Cousine:h10:b:cANSI
+"set guifont=Courier_New:h10:cANSI
+set guifont=Cousine:h10:b:cANSI
 
 " GUI options : menu, toolbar, scrollbars.
 " Add the 'm' letter to have the menu back.
@@ -92,6 +92,7 @@ set cindent
 set cinoptions+=(0)
 set foldmethod=marker
 set foldmarker=>>>,<<<
+set completeopt=menu,longest
 
 set grepprg=C:\MinGW\msys\1.0\bin\grep.exe
 
@@ -126,7 +127,8 @@ map q <nop>
 nmap <C-s> :w<CR>
 inoremap <S-CR> <Esc>
 
-nmap <F4> :wa<CR>:make!<CR><CR>
+" make!  -  do not jump to first error
+nmap <F4> :wa<CR>:make<CR><CR>
 nmap <F8> :!deploy<CR><CR>
 
 "nmap ga <Plug>(EasyAlign)
@@ -153,7 +155,7 @@ let g:bufExplorerDefaultHelp=0
 " the contents of the register to create the command.
 " For example:
 "     "zyiw - will yank the word into z reg
-" (note that the double quote in "z is part of the name of the register)
+" (note that the double quote in "z is part of the register name)
 " Next we concatenate the register to a command string and execute it.
 "     :exe "/".@z.""<CR> - searches for string in "z reg
 " Alternately you can replace @z by <C-r>z which will directly replace z by its content.
