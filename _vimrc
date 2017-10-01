@@ -3,7 +3,7 @@
 "set guifont=CamingoCode:h12:cANSI
 "set guifont=Hack:h11:cANSI
 "set guifont=Courier_New:h10:cANSI
-set guifont=Cousine:h10:b:cANSI
+set guifont=Cousine:h10:cANSI
 
 " GUI options : menu, toolbar, scrollbars.
 " Add the 'm' letter to have the menu back.
@@ -88,8 +88,9 @@ set backspace=indent,eol,start
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
-set cindent
-set cinoptions+=(0)
+"set cindent
+set autoindent
+"set cinoptions+=(0)
 set foldmethod=marker
 set foldmarker=>>>,<<<
 set completeopt=menu,longest

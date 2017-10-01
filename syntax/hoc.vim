@@ -14,11 +14,11 @@ set cpo&vim
 let s:ft = matchstr(&ft, '^\([^.]\)\+')
 
 " A bunch of useful C keywords
-syn keyword	cStatement	goto break return continue asm proc var include type cast
+syn keyword	cStatement	goto break return continue asm proc var include module type
 syn keyword	cLabel		case default
 syn keyword	cConditional	if else switch
 syn keyword	cRepeat		while for do
-syn keyword cSpecial new putc
+"syn keyword cSpecial new putc
 
 syn keyword	cTodo		contained TODO FIXME XXX
 

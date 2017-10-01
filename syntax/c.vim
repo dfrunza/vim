@@ -250,7 +250,7 @@ if exists("c_gnu")
   syn keyword	cType		__label__ __complex__ __volatile__
 endif
 
-syn keyword	cStructure	struct union enum typedef
+syn keyword	cStorageClass	struct union enum typedef internal inline
 syn keyword	cStorageClass	reuse use local global static register auto volatile extern const
 if exists("c_gnu")
   syn keyword	cStorageClass	inline __attribute__

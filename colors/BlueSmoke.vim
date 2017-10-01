@@ -66,14 +66,14 @@ hi Operator        guifg=Red4
 hi SyntaxChar      guifg=Cyan4 gui=None
 
 " github #BA1D5D
-hi Statement       guifg=Blue3 gui=None
+hi Statement       guifg=Blue3 gui=Bold
 hi StorageClass    guifg=Blue3
 hi Identifier      guifg=Magenta4
 hi Function        guifg=Magenta4
-hi Keyword         guifg=Orange
+hi Keyword         guifg=Blue3
 
 hi csClassOrStruct guifg=Blue3
-hi Type            guifg=Blue3 gui=None
+hi Type            guifg=Magenta4 gui=None
 hi PreProc         guifg=Magenta4
 
 "Orange3
