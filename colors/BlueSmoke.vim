@@ -13,15 +13,17 @@ let colors_name = "BlueSmoke"
 " SlateBlue, DeepSkyBlue, BlueViolet
 
 " Normal should come first
-"Blue tint: #F8F8FF
-"Orange tint: #FEF1E0
-hi Normal		 guifg=Grey10 guibg=White
+"Blue BG: #F8F8FF
+"Orange BG: #FEF1E0, #FFF1E5
+"Cyan FG: (lighter) #0D7681, (darker) #0A5E67
+"hi Normal		 guifg=Grey10 guibg=White
+hi Normal		 guifg=Black guibg=White
 
 hi Cursor       guifg=White	guibg=Red
 hi lCursor      guifg=NONE guibg=Cyan
 
 "#338FFF
-hi Visual       guifg=White guibg=SlateBlue
+hi Visual       guifg=White guibg=DeepSkyBlue
 hi VisualNOS    gui=underline
 
 hi Folded       guifg=#808080 guibg=#ECECEC gui=none
@@ -67,13 +69,13 @@ hi SyntaxChar      guifg=Cyan4 gui=None
 
 " github #BA1D5D
 hi Statement       guifg=Blue3 gui=Bold
-hi StorageClass    guifg=Blue3
+hi StorageClass    guifg=Blue3 gui=Bold
 hi Identifier      guifg=Magenta4
 hi Function        guifg=Magenta4
 hi Keyword         guifg=Blue3
 
 hi csClassOrStruct guifg=Blue3
-hi Type            guifg=Magenta4 gui=None
+hi Type            guifg=Blue3
 hi PreProc         guifg=Magenta4
 
 "Orange3

@@ -404,7 +404,7 @@ else
   exec "syn sync ccomment cComment minlines=" . b:c_minlines
 endif
 
-syn match       cExprOperator   "&\|\.\|!\|+\|-\|=\|\.\|:\|>\|<\|*\|\\\|\~\|,\|;\|||"
+syn match       cExprOperator   "&\|\.\|!\|+\|-\|=\|\.\|:\|>\|<\|*\|\\\|\~\|,\|;\|||\||"
 syn match       cSyntaxChar     "{\|}\|(\|)\|\[\|\]"
 
 " Define the default highlighting.
