@@ -9,8 +9,8 @@ endif
 
 let colors_name = "BlueSmoke"
 
-" Interesting colors
-" SlateBlue, DeepSkyBlue, BlueViolet
+" Prospective colors
+" SlateBlue, DeepSkyBlue, BlueViolet, LightCyan
 
 " Normal should come first
 "Blue BG: #F8F8FF
@@ -38,7 +38,7 @@ hi CursorLine   guibg=#FFF4CE
 
 hi DiffAdd       guibg=LightBlue
 hi DiffChange    guibg=LightMagenta
-hi DiffDelete    gui=bold guifg=Blue guibg=LightCyan
+hi DiffDelete    gui=none guifg=Black guibg=LightCyan
 hi DiffText      gui=bold guibg=Red
 hi Directory     guifg=Blue
 hi ErrorMsg      guibg=White guifg=DarkRed	   

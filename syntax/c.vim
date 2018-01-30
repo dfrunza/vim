@@ -251,7 +251,7 @@ if exists("c_gnu")
 endif
 
 syn keyword	cStorageClass	struct union enum typedef internal inline
-syn keyword	cStorageClass	reuse use local global static register auto volatile extern const
+syn keyword	cStorageClass	reuse use local_persist global_var static register auto volatile extern const
 if exists("c_gnu")
   syn keyword	cStorageClass	inline __attribute__
 endif
