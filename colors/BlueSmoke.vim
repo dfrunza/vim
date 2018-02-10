@@ -14,10 +14,36 @@ let colors_name = "BlueSmoke"
 
 " Normal should come first
 "Blue BG: #F8F8FF
-"Orange BG: #FEF1E0, #FFF1E5
 "Cyan FG: (lighter) #0D7681, (darker) #0A5E67
-"hi Normal		 guifg=Grey10 guibg=White
-hi Normal		 guifg=Black guibg=White
+"Pencil BG: #F1F1F1
+hi Normal	      guifg=Grey15 guibg=White 
+
+"Cold hue: #607d8b, #858E8F
+"Warm hue: Grey50
+hi Comment         guifg=Green4
+
+hi String          guifg=Green4
+hi Character       guifg=Green4
+hi Constant        guifg=Red4
+hi Operator        guifg=Red4
+hi SyntaxChar      guifg=Cyan4
+
+hi Statement       guifg=Blue3 gui=none
+hi StorageClass    guifg=Blue3
+hi Keyword         guifg=Blue3
+
+hi Identifier      guifg=Black
+
+" Github: #BA1D5D, #6E49BC
+hi Function        guifg=#5C3CA2
+
+" Pencil: #008EC4 
+hi Type            guifg=#0080B0 gui=none
+hi PreProc         guifg=Magenta4
+
+" printf() formatting specifiers
+hi Special         guifg=Orange3
+
 
 hi Cursor       guifg=White	guibg=Red
 hi lCursor      guifg=NONE guibg=Cyan
@@ -26,6 +52,7 @@ hi lCursor      guifg=NONE guibg=Cyan
 hi Visual       guifg=White guibg=DeepSkyBlue
 hi VisualNOS    gui=underline
 
+
 hi Folded       guifg=#808080 guibg=#ECECEC gui=none
 
 hi StatusLineNC	guifg=Grey75 guibg=NavyBlue gui=reverse,underline
@@ -33,7 +60,6 @@ hi VertSplit    guifg=Grey75 guibg=NavyBlue
 hi StatusLine   guifg=NavyBlue guibg=Grey75 gui=underline
 
 hi LineNr       guifg=#959595 guibg=#ECECEC
-"#FFF4CE
 hi CursorLine   guibg=#FFF4CE
 
 hi DiffAdd       guibg=LightBlue
@@ -56,29 +82,5 @@ hi SpecialKey    guifg=Blue
 hi Title         gui=bold guifg=Magenta
 hi WarningMsg    guifg=Red
 hi WildMenu      guibg=Yellow guifg=Black
-
-" Syntax highlighting
-
-"Cold hue: #607d8b, #858E8F
-"Warm hue: Grey50
-hi Comment         guifg=Green4
-hi String          guifg=Green4
-hi Constant        guifg=Red4
-hi Operator        guifg=Red4
-hi SyntaxChar      guifg=Cyan4 gui=None
-
-" github #BA1D5D
-hi Statement       guifg=Blue3 gui=Bold
-hi StorageClass    guifg=Blue3 gui=Bold
-hi Identifier      guifg=Magenta4
-hi Function        guifg=Magenta4
-hi Keyword         guifg=Blue3
-
-hi csClassOrStruct guifg=Blue3
-hi Type            guifg=Blue3
-hi PreProc         guifg=Magenta4
-
-"Orange3
-hi Special         guifg=Magenta4
 
 " vim: sw=2

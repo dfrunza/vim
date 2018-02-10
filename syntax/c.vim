@@ -227,8 +227,6 @@ if exists("c_gnu")
   syn keyword	cStatement	__asm__
   syn keyword	cOperator	typeof __real__ __imag__
 endif
-syn keyword	cType		int long short char void
-syn keyword	cType		signed unsigned float double uint8 uint16 uint32 uint64 int8 int16 int32 int64 float32 float64 bool32 uchar uint ushort
 syn keyword	cType		__int8 __int16 __int32 __int64
 if !exists("c_no_ansi") || exists("c_ansi_typedefs")
   syn keyword   cType		size_t ssize_t off_t wchar_t ptrdiff_t sig_atomic_t fpos_t
@@ -251,6 +249,8 @@ if exists("c_gnu")
 endif
 
 syn keyword	cStorageClass	struct union enum typedef internal inline
+syn keyword	cStorageClass	void char int short long int8 int16 int32 int64 uchar uint ushort uint8 uint16 uint32 uint64 
+syn keyword	cStorageClass	float double float32 float64 bool bool32 signed unsigned 
 syn keyword	cStorageClass	reuse use local_persist global_var static register auto volatile extern const
 if exists("c_gnu")
   syn keyword	cStorageClass	inline __attribute__
