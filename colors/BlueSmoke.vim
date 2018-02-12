@@ -21,7 +21,7 @@ hi SyntaxChar      guifg=Black
 hi Statement       guifg=Blue3 gui=bold
 hi StorageClass    guifg=Blue3 gui=bold
 hi Keyword         guifg=Blue3 gui=bold
-hi Identifier      guifg=Magenta4
+hi Identifier      guifg=Black
 hi Function        guifg=#007777 gui=bold
 hi Type            guifg=#912f11 gui=bold
 hi PreProc         guifg=Magenta4

@@ -1,9 +1,7 @@
-"set guifont=Consolas:h13
+set guifont=Consolas:h10.5
 "set guifont=Courier_New:h10
-set guifont=Cousine:h10
+"set guifont=Cousine:h10
 
-" evening, desert, slate, blue, delek
-"colors muratori
 colors BlueSmoke
 
 "  GUI options
@@ -20,6 +18,7 @@ set expandtab "noexpandtab -> real tabs instead of spaces
 set cindent
 set autoindent
 set cinoptions+=(0)
+set textwidth=200
 
 set fileformats+=dos
 set fileencoding=utf-8
@@ -39,10 +38,12 @@ set guicursor+=a:blinkon0
 " Minimal number of lines to keep above and below buffer.
 "set scrolloff=7
 
+" Startup
 "set columns=174
 "set lines=55
 "winpos 360 0
-set textwidth=200
+au GUIEnter * simalt ~x
+au VimEnter * vsp
 
 syntax on
 filetype plugin on
@@ -81,14 +82,14 @@ map <C-l> <C-w>l
 nmap <leader>ev :e $MYVIMRC<CR>
 nmap <leader>sb :so $MYVIMRC<CR>
 
-" Easy clearing of higlighted words
-nmap <silent> ,. :nohlsearch<CR>
+" Clearing of higlighted words
+nmap <silent> cd :nohlsearch<CR>
 
 nmap <C-s> :w<CR>
 nmap <C-b> :ToggleBufExplorer<CR>
 nmap <leader>q <leader>bd
 
-"  Disable annoyances
+" Disable annoyances
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 nmap <F1> <nop>
@@ -102,15 +103,13 @@ set foldmethod=marker
 set foldmarker=>>>,<<<
 set completeopt=menu,longest
 
-set grepprg=C:\tools\grepw32.exe
-
 let g:AutoPairsCenterLine=0
 
-" C
-"---
+"  C
+"-----
 set makeprg=build.bat
-" MSVC linker errorformat
 set errorformat+=%f\ :\ %trror\ LNK%*[0-9]:\ %m
+set errorformat+=%\\a%\\+%\\d%\\+%\\s%\\?:\ fatal\ %trror\ %\\a%\\+%\\d%\\+:\ %m
 
 "  C#
 "------
@@ -121,43 +120,35 @@ set errorformat+=%f\ :\ %trror\ LNK%*[0-9]:\ %m
 nmap <A-m> :wa<CR>:make!<CR><CR>
 nmap <F8> :!deploy<CR><CR>
 
-"nmap ga <Plug>(EasyAlign)
-"nmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
-"  Tag browsing and auto-completion
-"------------------------------------
-set omnifunc=ccomplete#Complete
-let g:SuperTabDefaultCompletionType="<C-X><C-O>"
+nmap <leader>t :TlistToggle<CR>
+let g:Tlist_Close_On_Select=1
+let g:Tlist_Use_Right_Window=0
+let g:Tlist_GainFocus_On_ToggleOpen=1
+let g:Tlist_Process_File_Always=1
+let g:Tlist_WinWidth=50
 
-"nmap <leader>t :TlistToggle<CR>
-"let g:Tlist_Close_On_Select=1
-"let g:Tlist_Use_Right_Window=0
-"let g:Tlist_GainFocus_On_ToggleOpen=1
-"let g:Tlist_Process_File_Always=1
-"let Tlist_WinWidth=50
+"nmap <leader>t :TagbarToggle<CR>
+"let g:tagbar_autoclose=1
+"let g:tagbar_width=50
+"let g:tagbar_left=1
+"let g:tagbar_compact=1
+"let g:tagbar_autopreview=0
+"let g:tagbar_autoclose=1
 
-nmap <leader>t :TagbarToggle<CR>
-let g:tagbar_autoclose=1
-let g:tagbar_width=50
-let g:tagbar_left=1
-let g:tagbar_compact=1
-let g:tagbar_autopreview=1
-let g:tagbar_autoclose=1
+let g:SuperTabDefaultCompletionType = "<C-x><C-o>"
+inoremap <C-Space> <C-x><C-o>
 
-let g:AutoComplPop_CompleteoptPreview=1
+" http://ctags.sourceforge.net/ctags.html
+let g:indexer_ctagsCommandLineOptions="--fields=+iaSl --extra=+q --sort=yes --languages=C,C++ --langmap=C++:+.hoc --C-kinds=+p --C++-kinds=+p"
 
-" --fields=[+/-]flags
-"        a    Access (or export) of class members
-"        f    File-restricted scoping [enabled]
-"        i    Inheritance information
-"        k    Kind of tag as a single letter [enabled]
-"        K    Kind of tag as full name
-"        l    Language of source file containing tag
-"        m    Implementation information
-"        n    Line number of tag definition
-"        s    Scope of tag definition [enabled]
-"        S    Signature of routine (e.g. prototype or parameter list)
-"        z    Include the "kind:" key in kind field
-"        t    Type and name of a variable or typedef as "typeref:" field [enabled]
-let g:indexer_ctagsCommandLineOptions="--fields=+ksSlnz --C-kinds=+p --C++-kinds=+p"
+" https://github.com/xolox/vim-easytags
+set updatetime=500
+let g:easytags_updatetime_min=500
+let g:easytags_dynamic_files=1
+let g:easytags_events=['CursorHold', 'CursorHoldI']
 

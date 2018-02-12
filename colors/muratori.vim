@@ -58,11 +58,11 @@ hi Constant         guifg=#6B8E23
 hi Special          guifg=#2BAE2B
 hi Operator         guifg=#B8860B
 
-hi Statement        guifg=#B8860B gui=None
-hi StorageClass     guifg=#B8860B gui=None
+hi Statement        guifg=#B8860B gui=bold
+hi StorageClass     guifg=#B8860B gui=bold
 hi Identifier       guifg=#D8B07A
 hi Function         guifg=#D8B07A
-hi Type	            guifg=#B8860B gui=None
+hi Type	            guifg=#B8860B gui=bold
 hi PreProc          guifg=#D8B07A
 
 " vim: sw=2

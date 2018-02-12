@@ -99,69 +99,77 @@ function! xolox#easytags#check_ctags_compatible(name, min_version) " {{{2
 endfunction
 
 function! xolox#easytags#register(global) " {{{2
-  " Parse the &tags option and get a list of all tags files *including
-  " non-existing files* (this is why we can't just call tagfiles()).
-  let tagfiles = xolox#misc#option#split_tags(&tags)
-  let expanded = map(copy(tagfiles), 'resolve(expand(v:val))')
-  " Add the filename to the &tags option when the user hasn't done so already.
-  let tagsfile = a:global ? g:easytags_file : xolox#easytags#get_file_type_specific_tagsfile()
-  if index(expanded, xolox#misc#path#absolute(tagsfile)) == -1
-    " This is a real mess because of bugs in Vim?! :let &tags = '...' doesn't
-    " work on UNIX and Windows, :set tags=... doesn't work on Windows. What I
-    " mean with "doesn't work" is that tagfiles() == [] after the :let/:set
-    " command even though the tags file exists! One easy way to confirm that
-    " this is a bug in Vim is to type :set tags= then press <Tab> followed by
-    " <CR>. Now you entered the exact same value that the code below also did
-    " but suddenly Vim sees the tags file and tagfiles() != [] :-S
-    "dfrunza: call add(tagfiles, tagsfile)
-    let value = xolox#misc#option#join_tags(tagfiles)
-    let cmd = (a:global ? 'set' : 'setl') . ' tags=' . escape(value, '\ ')
-    if xolox#misc#os#is_win() && v:version < 703
-      " TODO How to clear the expression from Vim's status line?
-      call feedkeys(":" . cmd . "|let &ro=&ro\<CR>", 'n')
-    else
-      execute cmd
-    endif
-  endif
+"  dfrunza:
+"  " Parse the &tags option and get a list of all tags files *including
+"  " non-existing files* (this is why we can't just call tagfiles()).
+"  let tagfiles = xolox#misc#option#split_tags(&tags)
+"  let expanded = map(copy(tagfiles), 'resolve(expand(v:val))')
+"  " Add the filename to the &tags option when the user hasn't done so already.
+"  let tagsfile = a:global ? g:easytags_file : xolox#easytags#get_file_type_specific_tagsfile()
+"  if index(expanded, xolox#misc#path#absolute(tagsfile)) == -1
+"    " This is a real mess because of bugs in Vim?! :let &tags = '...' doesn't
+"    " work on UNIX and Windows, :set tags=... doesn't work on Windows. What I
+"    " mean with "doesn't work" is that tagfiles() == [] after the :let/:set
+"    " command even though the tags file exists! One easy way to confirm that
+"    " this is a bug in Vim is to type :set tags= then press <Tab> followed by
+"    " <CR>. Now you entered the exact same value that the code below also did
+"    " but suddenly Vim sees the tags file and tagfiles() != [] :-S
+"    call add(tagfiles, tagsfile)
+"    let value = xolox#misc#option#join_tags(tagfiles)
+"    let cmd = (a:global ? 'set' : 'setl') . ' tags=' . escape(value, '\ ')
+"    if xolox#misc#os#is_win() && v:version < 703
+"      " TODO How to clear the expression from Vim's status line?
+"      call feedkeys(":" . cmd . "|let &ro=&ro\<CR>", 'n')
+"    else
+"      execute cmd
+"    endif
+"  endif
 endfunction
 
 " Public interface through (automatic) commands. {{{1
-
 function! xolox#easytags#autoload(event) " {{{2
-  try
-    let session_loading = xolox#easytags#session_is_loading() && a:event == 'BufReadPost'
-    let do_update = xolox#misc#option#get('easytags_auto_update', 1) && !session_loading
-    let do_highlight = xolox#misc#option#get('easytags_auto_highlight', 1) && &eventignore !~? '\<syntax\>'
-    " Don't execute this function for unsupported file types (doesn't load
-    " the list of file types if updates and highlighting are both disabled).
-    if (do_update || do_highlight) && !empty(xolox#easytags#filetypes#canonicalize(&filetype))
-      " Update entries for current file in tags file?
-      if do_update
-        let buffer_read = (a:event =~? 'BufReadPost')
-        let buffer_written = (a:event =~? 'BufWritePost')
-        if buffer_written || (buffer_read && xolox#misc#option#get('easytags_always_enabled', 0))
-          call xolox#easytags#update(1, 0, [])
-        endif
-      endif
-      " Apply highlighting of tags to current buffer?
-      if do_highlight
-        if !exists('b:easytags_last_highlighted')
-          call xolox#easytags#highlight()
-        else
-          for tagfile in tagfiles()
-            "dfrunza: if getftime(tagfile) > b:easytags_last_highlighted
-              call xolox#easytags#highlight()
-              break
-            "dfrunza: endif
-          endfor
-        endif
-        let b:easytags_last_highlighted = localtime()
-      endif
-    endif
-  catch
-    call xolox#misc#msg#warn("easytags.vim %s: %s (at %s)", g:xolox#easytags#version, v:exception, v:throwpoint)
-  endtry
+  call xolox#misc#msg#debug("xolox#easytags#autoload(%s)", a:event)
+  call xolox#easytags#highlight()
 endfunction
+
+"function! xolox#easytags#autoload(event) " {{{2
+"  call xolox#misc#msg#debug("xolox#easytags#autoload(%s)", a:event)
+"  try
+"    let session_loading = xolox#easytags#session_is_loading() && a:event == 'BufReadPost'
+"    let do_update = xolox#misc#option#get('easytags_auto_update', 1) && !session_loading
+"    let do_highlight = xolox#misc#option#get('easytags_auto_highlight', 1) && &eventignore !~? '\<syntax\>'
+"    " Don't execute this function for unsupported file types (doesn't load
+"    " the list of file types if updates and highlighting are both disabled).
+"    if (do_update || do_highlight) && !empty(xolox#easytags#filetypes#canonicalize(&filetype))
+"      " Update entries for current file in tags file?
+"      if do_update
+"        let buffer_read = (a:event =~? 'BufReadPost')
+"        let buffer_written = (a:event =~? 'BufWritePost')
+"        if buffer_written || (buffer_read && xolox#misc#option#get('easytags_always_enabled', 0))
+"          call xolox#easytags#update(1, 0, [])
+"        endif
+"      endif
+"      " Apply highlighting of tags to current buffer?
+"      if do_highlight
+"        if !exists('b:easytags_last_highlighted')
+"          call xolox#easytags#highlight()
+"        else
+"          for tagfile in tagfiles()
+"            let tagfile_ftime = getftime(tagfile)
+"            call xolox#misc#msg#debug("tagfile_ftime=%d, b:easytags_last_highlighted=%d", tagfile_ftime, b:easytags_last_highlighted)
+"            "dfrunza: if getftime(tagfile) > b:easytags_last_highlighted
+"              call xolox#easytags#highlight()
+"              "dfrunza: break
+"            "dfrunza: endif
+"          endfor
+"        endif
+"        let b:easytags_last_highlighted = localtime()
+"      endif
+"    endif
+"  catch
+"    call xolox#misc#msg#warn("easytags.vim %s: %s (at %s)", g:xolox#easytags#version, v:exception, v:throwpoint)
+"  endtry
+"endfunction
 
 function! xolox#easytags#update(silent, filter_tags, filenames) " {{{2
   let async = xolox#misc#option#get('easytags_async', 0)
@@ -295,6 +303,7 @@ endfunction
 
 function! xolox#easytags#highlight() " {{{2
   " TODO This is a mess; Re-implement Python version in Vim script, benchmark, remove Python version.
+  call xolox#misc#msg#debug("xolox#easytags#highlight()")
   try
     call g:xolox#easytags#highlight_timer.start()
     let filetype = xolox#easytags#filetypes#canonicalize(&filetype)
