@@ -149,10 +149,10 @@ function! xolox#easytags#autoload(event) " {{{2
           call xolox#easytags#highlight()
         else
           for tagfile in tagfiles()
-            if getftime(tagfile) > b:easytags_last_highlighted
+            "dfrunza: if getftime(tagfile) > b:easytags_last_highlighted
               call xolox#easytags#highlight()
               break
-            endif
+            "dfrunza: endif
           endfor
         endif
         let b:easytags_last_highlighted = localtime()

@@ -14,7 +14,7 @@ set cpo&vim
 let s:ft = matchstr(&ft, '^\([^.]\)\+')
 
 " A bunch of useful C keywords
-syn keyword	cStatement	goto break return continue asm
+syn keyword	cStatement	goto break return continue asm sizeof
 syn keyword	cLabel		case default
 syn keyword	cConditional	if else switch
 syn keyword	cRepeat		while for do
@@ -222,7 +222,6 @@ endif
 syn match	cCommentError	display "\*/"
 syn match	cCommentStartError display "/\*"me=e-1 contained
 
-syn keyword	cOperator	sizeof
 if exists("c_gnu")
   syn keyword	cStatement	__asm__
   syn keyword	cOperator	typeof __real__ __imag__
@@ -234,7 +233,7 @@ if !exists("c_no_ansi") || exists("c_ansi_typedefs")
   syn keyword   cType		mbstate_t wctrans_t wint_t wctype_t
 endif
 if !exists("c_no_c99") " ISO C99
-  syn keyword	cType		_Bool bool _Complex complex _Imaginary imaginary
+  syn keyword	cType		_Complex complex _Imaginary imaginary
   syn keyword	cType		int8_t int16_t int32_t int64_t
   syn keyword	cType		uint8_t uint16_t uint32_t uint64_t
   syn keyword	cType		int_least8_t int_least16_t int_least32_t int_least64_t
@@ -248,9 +247,9 @@ if exists("c_gnu")
   syn keyword	cType		__label__ __complex__ __volatile__
 endif
 
-syn keyword	cStorageClass	struct union enum typedef internal inline
-syn keyword	cStorageClass	void char int short long int8 int16 int32 int64 uchar uint ushort uint8 uint16 uint32 uint64 
-syn keyword	cStorageClass	float double float32 float64 bool bool32 signed unsigned 
+syn keyword	cStorageClass	struct union enum typedef internal inline signed unsigned 
+syn keyword	cType   	void char int short long int8 int16 int32 int64 uchar uint ushort uint8 uint16 uint32 uint64 
+syn keyword	cType   	float double float32 float64 bool bool32 wchar_t
 syn keyword	cStorageClass	reuse use local_persist global_var static register auto volatile extern const
 if exists("c_gnu")
   syn keyword	cStorageClass	inline __attribute__

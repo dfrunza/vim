@@ -9,47 +9,30 @@ endif
 
 let colors_name = "BlueSmoke"
 
-" Prospective colors
-" SlateBlue, DeepSkyBlue, BlueViolet, LightCyan
-
 " Normal should come first
-"Blue BG: #F8F8FF
-"Cyan FG: (lighter) #0D7681, (darker) #0A5E67
-"Pencil BG: #F1F1F1
 hi Normal	      guifg=Grey15 guibg=White 
 
-"Cold hue: #607d8b, #858E8F
-"Warm hue: Grey50
 hi Comment         guifg=Green4
-
 hi String          guifg=Green4
 hi Character       guifg=Green4
-hi Constant        guifg=Red4
+hi Constant        guifg=Green4
 hi Operator        guifg=Red4
-hi SyntaxChar      guifg=Cyan4
-
-hi Statement       guifg=Blue3 gui=none
-hi StorageClass    guifg=Blue3
-hi Keyword         guifg=Blue3
-
-hi Identifier      guifg=Black
-
-" Github: #BA1D5D, #6E49BC
-hi Function        guifg=#5C3CA2
-
-" Pencil: #008EC4 
-hi Type            guifg=#0080B0 gui=none
+hi SyntaxChar      guifg=Black
+hi Statement       guifg=Blue3 gui=bold
+hi StorageClass    guifg=Blue3 gui=bold
+hi Keyword         guifg=Blue3 gui=bold
+hi Identifier      guifg=Magenta4
+hi Function        guifg=#007777 gui=bold
+hi Type            guifg=#912f11 gui=bold
 hi PreProc         guifg=Magenta4
 
 " printf() formatting specifiers
 hi Special         guifg=Orange3
 
-
 hi Cursor       guifg=White	guibg=Red
 hi lCursor      guifg=NONE guibg=Cyan
 
-"#338FFF
-hi Visual       guifg=White guibg=DeepSkyBlue
+hi Visual       guibg=#b6d6fd
 hi VisualNOS    gui=underline
 
 

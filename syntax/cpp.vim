@@ -22,7 +22,7 @@ endif
 
 " C++ extensions
 syn keyword cppStatement	new delete this friend using
-syn keyword cppStatement	mutable inline virtual explicit export bool wchar_t
+syn keyword cppStatement	mutable inline virtual explicit export
 syn keyword cppAccess		public protected private
 syn keyword cppExceptions	throw try catch
 syn keyword cppStatement	operator typeid
