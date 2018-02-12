@@ -10,24 +10,24 @@ endif
 let colors_name = "BlueSmoke"
 
 " Normal should come first
-hi Normal	      guifg=Grey15 guibg=White 
+hi Normal	      guifg=Black guibg=White
 
 hi Comment         guifg=Green4
 hi String          guifg=Green4
 hi Character       guifg=Green4
 hi Constant        guifg=Green4
 hi Operator        guifg=Red4
-hi SyntaxChar      guifg=Black
-hi Statement       guifg=Blue3 gui=bold
-hi StorageClass    guifg=Blue3 gui=bold
-hi Keyword         guifg=Blue3 gui=bold
-hi Function        guifg=#007777 gui=bold
-hi Type            guifg=#912f11 gui=bold
-hi Identifier      guifg=#912f11 gui=bold
+hi SyntaxChar      guifg=Cyan4
+hi Statement       guifg=Red4 gui=bold
+hi StorageClass    guifg=Red4 gui=bold
+hi Keyword         guifg=Red4 gui=bold
+hi Type            guifg=Red4 gui=bold
+hi Function        guifg=Red4 gui=none
+hi Identifier      guifg=Red4 gui=bold
 hi PreProc         guifg=Magenta4
 
 " printf() formatting specifiers
-hi Special         guifg=Orange3
+hi Special         guifg=Magenta4
 
 hi Cursor       guifg=White	guibg=Red
 hi lCursor      guifg=NONE guibg=Cyan
@@ -40,7 +40,7 @@ hi Folded       guifg=#808080 guibg=#ECECEC gui=none
 
 hi StatusLineNC	guifg=Grey75 guibg=NavyBlue gui=reverse,underline
 hi VertSplit    guifg=Grey75 guibg=NavyBlue
-hi StatusLine   guifg=NavyBlue guibg=Grey75 gui=underline
+hi StatusLine   guifg=NavyBlue guibg=Grey75 gui=bold,underline
 
 hi LineNr       guifg=#959595 guibg=#ECECEC
 hi CursorLine   guibg=#FFF4CE

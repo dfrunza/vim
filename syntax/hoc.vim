@@ -14,7 +14,7 @@ set cpo&vim
 let s:ft = matchstr(&ft, '^\([^.]\)\+')
 
 " A bunch of useful C keywords
-syn keyword	cStatement	goto break return continue asm include
+syn keyword	cStatement	goto break return continue asm include mod and not or
 syn keyword	cLabel		case default
 syn keyword	cConditional	if else switch
 syn keyword	cRepeat		while for do
@@ -192,6 +192,9 @@ endif
 " flag an octal number with wrong digits
 syn match	cOctalError	display contained "0\o*[89]\d*"
 syn case match
+
+syn match       cExprOperator   "&\|\.\|!\|+\|-\|=\|\.\|:\|>\|<\|*\|\\\|\~\|,\|;\|||\||\|\^\|×\|/"
+syn match       cSyntaxChar     "{\|}\|(\|)\|\[\|\]"
 
 if exists("c_comment_strings")
   " A comment can contain cString, cCharacter and cNumber.
@@ -403,9 +406,6 @@ if exists("c_curly_error")
 else
   exec "syn sync ccomment cComment minlines=" . b:c_minlines
 endif
-
-syn match       cExprOperator   "&\|\.\|!\|+\|-\|=\|\.\|:\|>\|<\|*\|\\\|\~\|,\|;\|||\||\|\^"
-syn match       cSyntaxChar     "{\|}\|(\|)\|\[\|\]"
 
 " Define the default highlighting.
 " Only used when an item doesn't have highlighting yet

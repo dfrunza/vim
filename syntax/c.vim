@@ -189,6 +189,9 @@ if !exists("c_no_c99")
   syn match	cFloat		display contained "0x\x\+\.\=p[-+]\=\d\+[fl]\=\>"
 endif
 
+syn match       cExprOperator   "&\|\.\|!\|+\|-\|=\|\.\|:\|>\|<\|*\|\\\|\~\|\^\|,\|;\|||\||\|/"
+syn match       cSyntaxChar     "{\|}\|(\|)\|\[\|\]"
+
 " flag an octal number with wrong digits
 syn match	cOctalError	display contained "0\o*[89]\d*"
 syn case match
@@ -402,9 +405,6 @@ if exists("c_curly_error")
 else
   exec "syn sync ccomment cComment minlines=" . b:c_minlines
 endif
-
-syn match       cExprOperator   "&\|\.\|!\|+\|-\|=\|\.\|:\|>\|<\|*\|\\\|\~\|,\|;\|||\||"
-syn match       cSyntaxChar     "{\|}\|(\|)\|\[\|\]"
 
 " Define the default highlighting.
 " Only used when an item doesn't have highlighting yet

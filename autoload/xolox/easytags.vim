@@ -737,18 +737,18 @@ call xolox#easytags#define_tagkind({
 "      \ 'hlgroup': 'cEnum',
 "      \ 'tagkinds': 'e'})
 
-call xolox#easytags#define_tagkind({
-      \ 'filetype': 'cpp',
-      \ 'hlgroup': 'cPreProc',
-      \ 'tagkinds': 'd'})
+"call xolox#easytags#define_tagkind({
+"      \ 'filetype': 'cpp',
+"      \ 'hlgroup': 'cPreProc',
+"      \ 'tagkinds': 'd'})
 
-call xolox#easytags#define_tagkind({
-      \ 'filetype': 'cpp',
-      \ 'hlgroup': 'cFunction',
-      \ 'tagkinds': '[fp]'})
+"call xolox#easytags#define_tagkind({
+"      \ 'filetype': 'cpp',
+"      \ 'hlgroup': 'cFunction',
+"      \ 'tagkinds': '[fp]'})
 
 "highlight def link cEnum Identifier
-highlight def link cFunction Function
+"highlight def link cFunction Function
 
 if xolox#misc#option#get('easytags_include_members', 0)
   call xolox#easytags#define_tagkind({
