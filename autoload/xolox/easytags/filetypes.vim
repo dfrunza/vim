@@ -128,7 +128,7 @@ endfunction
 " To solve this dilemma the vim-easytags plug-in groups the C and C++ file
 " types together and tells Exuberant Ctags to treat it all as C++ because C++
 " is a superset of C.
-call xolox#easytags#filetypes#add_group('cpp', 'c')
+call xolox#easytags#filetypes#add_group('cpp', 'c', 'hoc')
 call xolox#easytags#filetypes#add_group('html', 'htmldjango')
 
 " Define the default file type mappings.

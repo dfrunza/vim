@@ -62,41 +62,45 @@ function! xolox#easytags#initialize(min_version) " {{{2
 endfunction
 
 function! xolox#easytags#check_ctags_compatible(name, min_version) " {{{2
-  " Not every executable out there named `ctags' is in fact Exuberant Ctags.
-  " This function makes sure it is because the easytags plug-in requires the
-  " --list-languages option (and more).
-  call xolox#misc#msg#debug("easytags.vim %s: Checking if Exuberant Ctags is installed as '%s'.", g:xolox#easytags#version, a:name)
-  " Make sure the given program is executable.
-  if !executable(a:name)
-    call xolox#misc#msg#debug("easytags.vim %s: Program '%s' is not executable!", g:xolox#easytags#version, a:name)
-    return 0
-  endif
-  " Make sure the command exits without reporting an error.
-  let command = a:name . ' --version'
-  let result = xolox#misc#os#exec({'command': command, 'check': 0})
-  if result['exit_code'] != 0
-    call xolox#misc#msg#debug("easytags.vim %s: Command '%s' returned nonzero exit code %i!", g:xolox#easytags#version, a:name, result['exit_code'])
-  else
-    " Extract the version number from the output.
-    let pattern = '\(Exuberant\|Universal\) Ctags \zs\(\d\+\(\.\d\+\)*\|Development\)'
-    let g:easytags_ctags_version = matchstr(get(result['stdout'], 0, ''), pattern)
-    " Deal with development builds.
-    if g:easytags_ctags_version == 'Development'
-      call xolox#misc#msg#debug("easytags.vim %s: Assuming development build is compatible ..", g:xolox#easytags#version, a:name)
-      return 1
-    endif
-    " Make sure the version is compatible.
-    if xolox#misc#version#at_least(a:min_version, g:easytags_ctags_version)
-      call xolox#misc#msg#debug("easytags.vim %s: Version is compatible! :-)", g:xolox#easytags#version)
-      return 1
-    else
-      call xolox#misc#msg#debug("easytags.vim %s: Version is not compatible! :-(", g:xolox#easytags#version)
-    endif
-  endif
-  call xolox#misc#msg#debug("easytags.vim %s: Standard output of command: %s", g:xolox#easytags#version, string(result['stdout']))
-  call xolox#misc#msg#debug("easytags.vim %s: Standard error of command: %s", g:xolox#easytags#version, string(result['stderr']))
-  return 0
+  return 1
 endfunction
+
+"function! xolox#easytags#check_ctags_compatible(name, min_version) " {{{2
+"  " Not every executable out there named `ctags' is in fact Exuberant Ctags.
+"  " This function makes sure it is because the easytags plug-in requires the
+"  " --list-languages option (and more).
+"  call xolox#misc#msg#debug("easytags.vim %s: Checking if Exuberant Ctags is installed as '%s'.", g:xolox#easytags#version, a:name)
+"  " Make sure the given program is executable.
+"  if !executable(a:name)
+"    call xolox#misc#msg#debug("easytags.vim %s: Program '%s' is not executable!", g:xolox#easytags#version, a:name)
+"    return 0
+"  endif
+"  " Make sure the command exits without reporting an error.
+"  let command = a:name . ' --version'
+"  let result = xolox#misc#os#exec({'command': command, 'check': 0})
+"  if result['exit_code'] != 0
+"    call xolox#misc#msg#debug("easytags.vim %s: Command '%s' returned nonzero exit code %i!", g:xolox#easytags#version, a:name, result['exit_code'])
+"  else
+"    " Extract the version number from the output.
+"    let pattern = '\(Exuberant\|Universal\) Ctags \zs\(\d\+\(\.\d\+\)*\|Development\)'
+"    let g:easytags_ctags_version = matchstr(get(result['stdout'], 0, ''), pattern)
+"    " Deal with development builds.
+"    if g:easytags_ctags_version == 'Development'
+"      call xolox#misc#msg#debug("easytags.vim %s: Assuming development build is compatible ..", g:xolox#easytags#version, a:name)
+"      return 1
+"    endif
+"    " Make sure the version is compatible.
+"    if xolox#misc#version#at_least(a:min_version, g:easytags_ctags_version)
+"      call xolox#misc#msg#debug("easytags.vim %s: Version is compatible! :-)", g:xolox#easytags#version)
+"      return 1
+"    else
+"      call xolox#misc#msg#debug("easytags.vim %s: Version is not compatible! :-(", g:xolox#easytags#version)
+"    endif
+"  endif
+"  call xolox#misc#msg#debug("easytags.vim %s: Standard output of command: %s", g:xolox#easytags#version, string(result['stdout']))
+"  call xolox#misc#msg#debug("easytags.vim %s: Standard error of command: %s", g:xolox#easytags#version, string(result['stderr']))
+"  return 0
+"endfunction
 
 function! xolox#easytags#register(global) " {{{2
 "  dfrunza:
@@ -129,7 +133,19 @@ endfunction
 " Public interface through (automatic) commands. {{{1
 function! xolox#easytags#autoload(event) " {{{2
   call xolox#misc#msg#debug("xolox#easytags#autoload(%s)", a:event)
-  call xolox#easytags#highlight()
+
+  if !exists('b:easytags_last_highlighted')
+    call xolox#easytags#highlight()
+  else
+    for tagfile in tagfiles()
+      let tagfile_ftime = getftime(tagfile)
+      call xolox#misc#msg#debug("tagfile_ftime=%d, b:easytags_last_highlighted=%d", tagfile_ftime, b:easytags_last_highlighted)
+      if getftime(tagfile) > b:easytags_last_highlighted
+        call xolox#easytags#highlight()
+      endif
+    endfor
+  endif
+  let b:easytags_last_highlighted = localtime() - 1
 endfunction
 
 "function! xolox#easytags#autoload(event) " {{{2
@@ -304,6 +320,7 @@ endfunction
 function! xolox#easytags#highlight() " {{{2
   " TODO This is a mess; Re-implement Python version in Vim script, benchmark, remove Python version.
   call xolox#misc#msg#debug("xolox#easytags#highlight()")
+
   try
     call g:xolox#easytags#highlight_timer.start()
     let filetype = xolox#easytags#filetypes#canonicalize(&filetype)
@@ -713,12 +730,12 @@ call xolox#easytags#define_tagkind({
 call xolox#easytags#define_tagkind({
       \ 'filetype': 'cpp',
       \ 'hlgroup': 'cType',
-      \ 'tagkinds': '[cgstu]'})
+      \ 'tagkinds': '[cgstun]'})
 
-call xolox#easytags#define_tagkind({
-      \ 'filetype': 'cpp',
-      \ 'hlgroup': 'cEnum',
-      \ 'tagkinds': 'e'})
+"call xolox#easytags#define_tagkind({
+"      \ 'filetype': 'cpp',
+"      \ 'hlgroup': 'cEnum',
+"      \ 'tagkinds': 'e'})
 
 call xolox#easytags#define_tagkind({
       \ 'filetype': 'cpp',
@@ -730,7 +747,7 @@ call xolox#easytags#define_tagkind({
       \ 'hlgroup': 'cFunction',
       \ 'tagkinds': '[fp]'})
 
-highlight def link cEnum Identifier
+"highlight def link cEnum Identifier
 highlight def link cFunction Function
 
 if xolox#misc#option#get('easytags_include_members', 0)

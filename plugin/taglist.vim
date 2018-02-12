@@ -402,6 +402,10 @@ let s:tlist_def_c_settings = 'c;d:macro;g:enum;s:struct;u:union;t:typedef;' .
 let s:tlist_def_cpp_settings = 'c++;n:namespace;v:variable;d:macro;t:typedef;' .
                              \ 'c:class;g:enum;s:struct;u:union;f:function'
 
+" hoc language
+let s:tlist_def_hoc_settings = 'c++;n:namespace;v:variable;d:macro;t:typedef;' .
+                             \ 'c:class;g:enum;s:struct;u:union;f:function'
+
 " c# language
 let s:tlist_def_cs_settings = 'c#;d:macro;t:typedef;n:namespace;c:class;' .
                              \ 'E:event;g:enum;s:struct;i:interface;' .
