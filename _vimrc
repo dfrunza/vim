@@ -132,23 +132,16 @@ let g:Tlist_GainFocus_On_ToggleOpen=1
 let g:Tlist_Process_File_Always=1
 let g:Tlist_WinWidth=50
 
-"nmap <leader>t :TagbarToggle<CR>
-"let g:tagbar_autoclose=1
-"let g:tagbar_width=50
-"let g:tagbar_left=1
-"let g:tagbar_compact=1
-"let g:tagbar_autopreview=0
-"let g:tagbar_autoclose=1
-
 let g:SuperTabDefaultCompletionType = "<C-x><C-o>"
 inoremap <C-Space> <C-x><C-o>
 
 " http://ctags.sourceforge.net/ctags.html
-let g:indexer_ctagsCommandLineOptions="--fields=+iaSl --extra=+q --sort=yes --languages=C,C++ --langmap=C++:+.hoc --C-kinds=+p --C++-kinds=+p"
+let g:indexer_ctagsCommandLineOptions="--fields=+iaSl --extras=+q --sort=yes --languages=C,C++ --langmap=C++:+.hoc --C-kinds=+p --C++-kinds=+p"
+set tags+=d:\mingw\include\tags
 
 " https://github.com/xolox/vim-easytags
-set updatetime=500
-let g:easytags_updatetime_min=500
-let g:easytags_dynamic_files=1
-let g:easytags_events=['CursorHold', 'CursorHoldI']
+"set updatetime=500
+"let g:easytags_updatetime_min=500
+"let g:easytags_dynamic_files=1
+"let g:easytags_events=['CursorHold', 'CursorHoldI']
 

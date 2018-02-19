@@ -10,20 +10,21 @@ endif
 let colors_name = "BlueSmoke"
 
 " Normal should come first
-hi Normal	      guifg=Black guibg=White
+hi Normal	         guifg=Black guibg=White
 
 hi Comment         guifg=Green4
 hi String          guifg=Green4
 hi Character       guifg=Green4
-hi Constant        guifg=Green4
+hi Constant        guifg=Black
 hi Operator        guifg=Red4
-hi SyntaxChar      guifg=Cyan4
-hi Statement       guifg=Red4 gui=bold
-hi StorageClass    guifg=Red4 gui=bold
-hi Keyword         guifg=Red4 gui=bold
-hi Type            guifg=Red4 gui=bold
-hi Function        guifg=Red4 gui=none
-hi Identifier      guifg=Red4 gui=bold
+hi SyntaxChar      guifg=Black
+hi Statement       guifg=Blue3 gui=none
+hi StorageClass    guifg=Blue3 gui=none
+hi Keyword         guifg=Blue3 gui=none
+hi cType           guifg=Blue3 gui=none
+hi Type            guifg=Black gui=none
+hi Function        guifg=Black gui=none
+hi Identifier      guifg=Magenta4 gui=none
 hi PreProc         guifg=Magenta4
 
 " printf() formatting specifiers

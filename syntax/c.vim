@@ -189,7 +189,7 @@ if !exists("c_no_c99")
   syn match	cFloat		display contained "0x\x\+\.\=p[-+]\=\d\+[fl]\=\>"
 endif
 
-syn match       cExprOperator   "&\|\.\|!\|+\|-\|=\|\.\|:\|>\|<\|*\|\\\|\~\|\^\|,\|;\|||\||\|/"
+syn match       cExprOperator   "&\|\.\|!\|+\|-\|=\|\.\|:\|>\|<\|*\|\\\|\~\|\^\|,\|;\|||\||\|/\|%"
 syn match       cSyntaxChar     "{\|}\|(\|)\|\[\|\]"
 
 " flag an octal number with wrong digits
@@ -444,7 +444,7 @@ hi def link cCppInWrapper	cCppOutWrapper
 hi def link cCppOutWrapper	cPreCondit
 hi def link cPreConditMatch	cPreCondit
 hi def link cPreCondit		PreCondit
-hi def link cType		Type
+"hi def link cType		Type
 hi def link cConstant		Constant
 hi def link cCommentString	cString
 hi def link cComment2String	cString

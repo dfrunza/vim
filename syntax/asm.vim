@@ -38,7 +38,8 @@ syn match asmType "\.string"
 syn match asmType "\.word"
 
 syn match asmLabel		"[a-z_][a-z0-9_]*:"he=e-1
-syn match asmIdentifier		"[a-z_][a-z0-9_]*"
+"syn match asmIdentifier		"[a-z_][a-z0-9_]*"
+syn match asmNumber             display contained "\d\+\(u\=l\{0,2}\|ll\=u\)\>"
 
 " Various #'s as defined by GAS ref manual sec 3.6.2.1
 " Technically, the first decNumber def is actually octal,
@@ -111,7 +112,7 @@ if version >= 508 || !exists("did_asm_syntax_inits")
 
   " The default methods for highlighting.  Can be overridden later
   HiLink asmSection	Special
-  HiLink asmLabel	Label
+  hi asmLabel guifg=Black guibg=LightCyan
   HiLink asmComment	Comment
   HiLink asmTodo	Todo
   HiLink asmDirective	Statement
@@ -127,6 +128,7 @@ if version >= 508 || !exists("did_asm_syntax_inits")
 
   HiLink asmIdentifier	Identifier
   HiLink asmType	Type
+  HiLink asmNumber      Constant
 
   delcommand HiLink
 endif
