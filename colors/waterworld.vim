@@ -22,7 +22,7 @@ let s:search_1  = "#edf779"
 let s:search_0  = "#fff176"
 let s:search    = s:search_1
 
-let s:keyword_1 = "#a5d6ed"
+let s:keyword_1 = "#b3e2f2"
 let s:keyword_0 = "#7ec0ee"
 let s:keyword   = s:keyword_1
 
@@ -55,8 +55,8 @@ let s:visual    = s:visual_0
 let s:error     = "#e53935"
 let s:warning   = s:search
 
-let s:border    = "Grey65"
-let s:gutter_fg = "#191970"
+let s:border_bg = "Grey65"
+let s:border_fg = "#191970"
 
 
 " Normal should come first
@@ -81,10 +81,10 @@ call s:HL("Error",        {"bg": s:error,   "fg": s:normal})
 call s:HL("WarningMsg",   {"bg": s:warning, "fg": "Black"})
 call s:HL("Cursor",       {"bg": s:error,   "fg": s:normal})
 call s:HL("MatchParen",   {"bg": "#005F87", "fg": s:normal})
-call s:HL("LineNr",       {"bg": s:border,  "fg": s:gutter_fg, "gui": "underline"})
-call s:HL("StatusLineNC", {"bg": s:border,  "fg": s:gutter_fg, "gui": "underline"})
-call s:HL("VertSplit",    {"bg": s:border,  "fg": s:gutter_fg, "gui": "underline"})
-call s:HL("StatusLine",   {"bg": s:gutter_fg, "fg": s:border, "gui": "reverse,underline"})
+call s:HL("LineNr",       {"bg": s:border_bg,  "fg": s:border_fg, "gui": "underline"})
+call s:HL("StatusLineNC", {"bg": s:border_bg,  "fg": s:border_fg, "gui": "underline"})
+call s:HL("StatusLine",   {"bg": s:border_fg,  "fg": s:border_bg, "gui": "reverse,underline"})
+call s:HL("VertSplit",    {"bg": s:border_bg,  "fg": s:border_fg, "gui": "underline"})
 call s:HL("Title",        {"fg": s:special, "bg": s:bg})
 
 
