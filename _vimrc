@@ -1,6 +1,6 @@
 set guifont=Consolas:h10.5:b
 
-colors borlandesque
+colors waterworld
 
 "  GUI options
 "---------------
@@ -21,15 +21,12 @@ set textwidth=200
 set fileformats+=dos
 set fileencoding=utf-8
 
-" Disable
 " r       Automatically insert the current comment leader after hitting
 "         <Enter> in Insert mode.
 " o       Automatically insert the current comment leader after hitting 'o' or
 "         'O' in Normal mode.
 set formatoptions=cql
 
-"  Cursor
-"----------
 set nocursorline
 set guicursor+=a:blinkon0
 
@@ -81,7 +78,7 @@ nmap <leader>ev :e $MYVIMRC<CR>
 nmap <leader>sb :so $MYVIMRC<CR>
 
 " Clearing of higlighted words
-nmap <silent> cd :nohlsearch<CR>
+nmap <silent> gk :nohlsearch<CR>
 
 nmap <C-s> :w<CR>
 nmap <C-b> :ToggleBufExplorer<CR>
@@ -128,6 +125,7 @@ let g:Tlist_Use_Right_Window=0
 let g:Tlist_GainFocus_On_ToggleOpen=1
 let g:Tlist_Process_File_Always=1
 let g:Tlist_WinWidth=50
+let g:Tlist_Sort_Type="name"
 
 let g:SuperTabDefaultCompletionType = "<C-x><C-o>"
 inoremap <C-Space> <C-x><C-o>
@@ -135,12 +133,6 @@ inoremap <C-Space> <C-x><C-o>
 " http://ctags.sourceforge.net/ctags.html
 let g:indexer_ctagsCommandLineOptions="--fields=+iaSl --extras=+q --sort=yes --languages=C,C++ --langmap=C++:+.hoc --C-kinds=+p --C++-kinds=+p"
 set tags+=d:\mingw\include\tags
-
-" https://github.com/xolox/vim-easytags
-"set updatetime=500
-"let g:easytags_updatetime_min=500
-"let g:easytags_dynamic_files=1
-"let g:easytags_events=['CursorHold', 'CursorHoldI']
 
 set completeopt=menu,longest
 

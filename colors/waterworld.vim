@@ -86,6 +86,7 @@ call s:HL("StatusLine",   {"bg": s:border_fg,  "fg": s:border_bg, "gui": "revers
 call s:HL("VertSplit",    {"bg": s:border_bg,  "fg": s:border_fg, "gui": "underline"})
 call s:HL("Title",        {"bg": s:bg, "fg": s:special})
 call s:HL("TagbarSignature", {"bg": s:bg, "fg": s:comment})
+call s:HL("TagListTagScope", {"bg": s:bg, "fg": s:comment})
 call s:HL("Directory",    {"bg": s:bg, "fg": s:keyword})
 call s:HL("Pmenu",        {"bg": s:border_bg, "fg": "#191970"})
 call s:HL("PmenuSel",     {"bg": s:visual, "fg": s:normal})
