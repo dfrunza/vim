@@ -5,8 +5,8 @@ endif
 syn case match
 
 syn match   ir_stmt_nr "\s\?[0-9]\+:"
-syn match   ir_proc_label "[_a-z][_a-z0-9]*:"
-syn match   ir_label   "L_[a-zA-Z0-9]*:"
+syn match   ir_proc_label "[_a-zA-Z][_a-zA-Z0-9]*:"
+syn match   ir_label   "L_[_a-zA-Z0-9]*:"
 syn keyword ir_statement goto if param call return nop
 syn keyword ir_statement and or not mod itof itoc itob ftoi ctoi btoi
 syn match   ir_expr_operator "&\|!\||\|\~\|=\|==\|<\|<=\|>\|>=\|+\|-\|*\|/\|^"

@@ -14,7 +14,7 @@ set cpo&vim
 let s:ft = matchstr(&ft, '^\([^.]\)\+')
 
 " A bunch of useful C keywords
-syn keyword	cStatement	goto break return continue asm sizeof
+syn keyword	cStatement	goto break return continue asm sizeof local_persist global_var 
 syn keyword	cLabel		case default
 syn keyword	cConditional	if else switch
 syn keyword	cRepeat		while for do
@@ -253,7 +253,7 @@ endif
 syn keyword	cStorageClass	struct union enum typedef internal inline signed unsigned 
 syn keyword	cType   	void char int short long int8 int16 int32 int64 uchar uint ushort uint8 uint16 uint32 uint64 
 syn keyword	cType   	float double float32 float64 bool bool32 wchar_t
-syn keyword	cStorageClass	reuse use local_persist global_var static register auto volatile extern const
+syn keyword	cStorageClass	reuse use static register auto volatile extern const
 if exists("c_gnu")
   syn keyword	cStorageClass	inline __attribute__
 endif

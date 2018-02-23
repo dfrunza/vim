@@ -14,7 +14,7 @@ set cpo&vim
 let s:ft = matchstr(&ft, '^\([^.]\)\+')
 
 " A bunch of useful C keywords
-syn keyword	cStatement	goto break return continue asm include mod and not or
+syn keyword	cStatement	goto break return continue asm include and not or cast
 syn keyword	cLabel		case default
 syn keyword	cConditional	if else switch
 syn keyword	cRepeat		while for do
@@ -193,7 +193,7 @@ endif
 syn match	cOctalError	display contained "0\o*[89]\d*"
 syn case match
 
-syn match       cExprOperator   "&\|\.\|!\|+\|-\|=\|\.\|:\|>\|<\|*\|\\\|\~\|,\|;\|||\||\|\^\|×\|/"
+syn match       cExprOperator   "&\|\.\|!\|+\|-\|=\|\.\|:\|>\|<\|*\|\\\|\~\|,\|;\|||\||\|\^\|×\|/\|%"
 syn match       cSyntaxChar     "{\|}\|(\|)\|\[\|\]"
 
 if exists("c_comment_strings")
@@ -205,7 +205,7 @@ if exists("c_comment_strings")
   syn match	cCommentSkip	contained "^\s*\*\($\|\s\+\)"
   syn region cCommentString	contained start=+L\=\\\@<!"+ skip=+\\\\\|\\"+ end=+"+ end=+\*/+me=s-1 contains=cSpecial,cCommentSkip
   syn region cComment2String	contained start=+L\=\\\@<!"+ skip=+\\\\\|\\"+ end=+"+ end="$" contains=cSpecial
-  syn region  cCommentL	start="//" skip="\\$" end="$" keepend contains=@cCommentGroup,cComment2String,cCharacter,cNumbersCom,cSpaceError,@Spell
+  "syn region  cCommentL	start="//" skip="\\$" end="$" keepend contains=@cCommentGroup,cComment2String,cCharacter,cNumbersCom,cSpaceError,@Spell
   if exists("c_no_comment_fold")
     " Use "extend" here to have preprocessor lines not terminate halfway a
     " comment.
@@ -214,7 +214,7 @@ if exists("c_comment_strings")
     syn region cComment	matchgroup=cCommentStart start="/\*" end="\*/" contains=@cCommentGroup,cCommentStartError,cCommentString,cCharacter,cNumbersCom,cSpaceError,@Spell fold extend
   endif
 else
-  syn region	cCommentL	start="//" skip="\\$" end="$" keepend contains=@cCommentGroup,cSpaceError,@Spell
+  "syn region	cCommentL	start="//" skip="\\$" end="$" keepend contains=@cCommentGroup,cSpaceError,@Spell
   if exists("c_no_comment_fold")
     syn region	cComment	matchgroup=cCommentStart start="/\*" end="\*/" contains=@cCommentGroup,cCommentStartError,cSpaceError,@Spell extend
   else

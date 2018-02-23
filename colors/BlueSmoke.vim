@@ -18,13 +18,13 @@ hi Character       guifg=Green4
 hi Constant        guifg=Black
 hi Operator        guifg=Red4
 hi SyntaxChar      guifg=Black
-hi Statement       guifg=Blue3 gui=none
-hi StorageClass    guifg=Blue3 gui=none
-hi Keyword         guifg=Blue3 gui=none
-hi cType           guifg=Blue3 gui=none
-hi Type            guifg=Black gui=none
-hi Function        guifg=Black gui=none
-hi Identifier      guifg=Magenta4 gui=none
+hi Statement       guifg=Blue3 gui=bold
+hi StorageClass    guifg=Blue3 gui=bold
+hi Keyword         guifg=Blue3 gui=bold
+hi cType           guifg=Black gui=bold
+hi Type            guifg=Black gui=bold
+hi Function        guifg=Black gui=bold
+hi Identifier      guifg=Magenta4 gui=bold
 hi PreProc         guifg=Magenta4
 
 " printf() formatting specifiers
