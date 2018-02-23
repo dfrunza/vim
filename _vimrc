@@ -1,8 +1,6 @@
-set guifont=Consolas:h10.5
-"set guifont=Courier_New:h10
-"set guifont=Cousine:h10
+set guifont=Consolas:h10.5:b
 
-colors BlueSmoke
+colors borlandesque
 
 "  GUI options
 "---------------
@@ -101,7 +99,6 @@ let g:bufExplorerDefaultHelp=0
 "---------
 set foldmethod=marker
 set foldmarker=>>>,<<<
-set completeopt=menu,longest
 
 let g:AutoPairsCenterLine=0
 
@@ -109,7 +106,7 @@ let g:AutoPairsCenterLine=0
 "-----
 set makeprg=build.bat
 set errorformat+=%f\ :\ %trror\ LNK%*[0-9]:\ %m
-set errorformat+=%\\a%\\+%\\d%\\+%\\s%\\?:\ fatal\ %trror\ %\\a%\\+%\\d%\\+:\ %m
+set errorformat+=%\\a%\\+%\\d%\\?%\\s%\\?:\ fatal\ %trror\ %\\a%\\+%\\d%\\+:\ %m
 
 "  C#
 "------
@@ -144,4 +141,6 @@ set tags+=d:\mingw\include\tags
 "let g:easytags_updatetime_min=500
 "let g:easytags_dynamic_files=1
 "let g:easytags_events=['CursorHold', 'CursorHoldI']
+
+set completeopt=menu,longest
 
