@@ -18,8 +18,16 @@ set autoindent
 set cinoptions+=(0)
 set textwidth=200
 
+" If the End-Of-Line at the end of file is suppressed, then Vim will use 'LF' as the newline character,
+" effectively switching to Unix format. Couldn't figure out how to have 'noeol' AND keep 'CR\LF' line-endings.
+" Fucking terrible; I'm so upset :(
+"set binary
+"set noeol
+
 set fileformats+=dos
-set fileencoding=utf-8
+set fileformat=dos
+set encoding=cp437
+set fileencoding=cp437
 
 " r       Automatically insert the current comment leader after hitting
 "         <Enter> in Insert mode.
@@ -27,7 +35,7 @@ set fileencoding=utf-8
 "         'O' in Normal mode.
 set formatoptions=cql
 
-set nocursorline
+set cursorline
 set guicursor+=a:blinkon0
 
 " Minimal number of lines to keep above and below buffer.
@@ -78,7 +86,7 @@ nmap <leader>ev :e $MYVIMRC<CR>
 nmap <leader>sb :so $MYVIMRC<CR>
 
 " Clearing of higlighted words
-nmap <silent> gk :nohlsearch<CR>
+nmap <silent> mk :nohlsearch<CR>
 
 nmap <C-s> :w<CR>
 nmap <C-b> :ToggleBufExplorer<CR>
@@ -91,6 +99,7 @@ nmap <F1> <nop>
 map q <nop>
 let g:netrw_banner=0
 let g:bufExplorerDefaultHelp=0
+
 
 "  Folds
 "---------
@@ -105,13 +114,15 @@ set makeprg=build.bat
 set errorformat+=%f\ :\ %trror\ LNK%*[0-9]:\ %m
 set errorformat+=%\\a%\\+%\\d%\\?%\\s%\\?:\ fatal\ %trror\ %\\a%\\+%\\d%\\+:\ %m
 
+set completeopt=menu,menuone,longest
+
 "  C#
 "------
 "set errorformat=%f(%l\\,%c):\ %t%*[^\ ]\ CS%n:\ %m
 "set makeprg=msbuild\ /nologo\ /v:q\ /property:GenerateFullPaths=true
 
 " make! ->  do not jump to first error
-nmap <A-m> :wa<CR>:make!<CR><CR>
+nmap <F4> :wa<CR>:make!<CR><CR>
 nmap <F8> :!deploy<CR><CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -127,12 +138,9 @@ let g:Tlist_Process_File_Always=1
 let g:Tlist_WinWidth=50
 let g:Tlist_Sort_Type="name"
 
-let g:SuperTabDefaultCompletionType = "<C-x><C-o>"
 inoremap <C-Space> <C-x><C-o>
 
 " http://ctags.sourceforge.net/ctags.html
 let g:indexer_ctagsCommandLineOptions="--fields=+iaSl --extras=+q --sort=yes --languages=C,C++ --langmap=C++:+.hoc --C-kinds=+p --C++-kinds=+p"
-set tags+=d:\mingw\include\tags
-
-set completeopt=menu,longest
+set tags+=c:\mingw\include\tags
 
