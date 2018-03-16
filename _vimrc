@@ -1,6 +1,6 @@
-set guifont=Consolas:h10.5:b
+set guifont=Consolas:h10.5
 
-colors waterworld
+colors vc6
 
 "  GUI options
 "---------------
@@ -26,8 +26,8 @@ set textwidth=200
 
 set fileformats+=dos
 set fileformat=dos
-set encoding=cp437
-set fileencoding=cp437
+set encoding=latin1
+set fileencoding=latin1
 
 " r       Automatically insert the current comment leader after hitting
 "         <Enter> in Insert mode.
@@ -35,7 +35,7 @@ set fileencoding=cp437
 "         'O' in Normal mode.
 set formatoptions=cql
 
-set cursorline
+set nocursorline
 set guicursor+=a:blinkon0
 
 " Minimal number of lines to keep above and below buffer.
@@ -86,7 +86,7 @@ nmap <leader>ev :e $MYVIMRC<CR>
 nmap <leader>sb :so $MYVIMRC<CR>
 
 " Clearing of higlighted words
-nmap <silent> mk :nohlsearch<CR>
+nmap <silent> gg :nohlsearch<CR>
 
 nmap <C-s> :w<CR>
 nmap <C-b> :ToggleBufExplorer<CR>
@@ -95,8 +95,8 @@ nmap <leader>q <leader>bd
 " Disable annoyances
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
-nmap <F1> <nop>
-map q <nop>
+inoremap <F1> <nop>
+inoremap q <nop>
 let g:netrw_banner=0
 let g:bufExplorerDefaultHelp=0
 
@@ -114,7 +114,7 @@ set makeprg=build.bat
 set errorformat+=%f\ :\ %trror\ LNK%*[0-9]:\ %m
 set errorformat+=%\\a%\\+%\\d%\\?%\\s%\\?:\ fatal\ %trror\ %\\a%\\+%\\d%\\+:\ %m
 
-set completeopt=menu,menuone,longest
+set completeopt=menu
 
 "  C#
 "------
@@ -122,7 +122,7 @@ set completeopt=menu,menuone,longest
 "set makeprg=msbuild\ /nologo\ /v:q\ /property:GenerateFullPaths=true
 
 " make! ->  do not jump to first error
-nmap <F4> :wa<CR>:make!<CR><CR>
+nmap <A-m> :wa<CR>:make!<CR><CR>
 nmap <F8> :!deploy<CR><CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)

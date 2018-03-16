@@ -18,6 +18,7 @@ syn keyword	cStatement	goto break return continue asm sizeof local_persist globa
 syn keyword	cLabel		case default
 syn keyword	cConditional	if else switch
 syn keyword	cRepeat		while for do
+syn keyword     cType           void char int float double
 
 syn keyword	cTodo		contained TODO FIXME XXX
 
@@ -444,7 +445,7 @@ hi def link cCppInWrapper	cCppOutWrapper
 hi def link cCppOutWrapper	cPreCondit
 hi def link cPreConditMatch	cPreCondit
 hi def link cPreCondit		PreCondit
-"hi def link cType		Type
+hi def link cType		Type
 hi def link cConstant		Constant
 hi def link cCommentString	cString
 hi def link cComment2String	cString
