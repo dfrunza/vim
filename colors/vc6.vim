@@ -17,11 +17,10 @@ function! s:HL(group, style)
     \ "gui="     (has_key(a:style, "gui")   ? a:style.gui  : "NONE")
 endfunction
 
-let s:navy_blue = "#000080"
 let s:fg        = "Black"
 let s:bg        = "White"
 let s:search    = "Yellow"
-let s:keyword   = "Blue3"
+let s:keyword   = "Black"
 let s:comment   = "Green4"
 let s:string    = "Green4"
 let s:special   = "Magenta4"
@@ -29,7 +28,7 @@ let s:visual    = "#b6d6fd"
 let s:error     = "Red2"
 let s:warning   = "Red2"
 let s:border_bg = "Grey85"
-let s:border_fg = s:navy_blue
+let s:border_fg = "Black"
 let s:cursor_line = "#fff4ce"
 let s:cursor      = "Red"
 let s:status_line = s:border_bg
@@ -40,16 +39,17 @@ let s:constant    = "Red4"
 " Normal should come first
 call s:HL("Normal",       {"bg": s:bg,      "fg": s:fg})
 call s:HL("NonText",      {"bg": s:bg,      "fg": s:fg})
-call s:HL("Statement",    {"bg": s:bg,      "fg": s:keyword})
-call s:HL("StorageClass", {"bg": s:bg,      "fg": s:keyword})
+call s:HL("Statement",    {"bg": s:bg,      "fg": s:keyword, "gui": "bold"})
+call s:HL("StorageClass", {"bg": s:bg,      "fg": s:keyword, "gui": "bold"})
 call s:HL("Identifier",   {"bg": s:bg,      "fg": s:keyword})
 call s:HL("Operator",     {"bg": s:bg,      "fg": s:operator})
+call s:HL("SyntaxChar",   {"bg": s:bg,      "fg": s:special})
 call s:HL("Directory",    {"bg": s:bg,      "fg": s:keyword})
 call s:HL("Function",     {"bg": s:bg,      "fg": s:fg})
-call s:HL("Type",         {"bg": s:bg,      "fg": s:keyword})
+call s:HL("Type",         {"bg": s:bg,      "fg": s:keyword, "gui": "bold"})
 call s:HL("PreProc",      {"bg": s:bg,      "fg": s:special})
 call s:HL("Search",       {"bg": s:search,  "fg": s:fg})
-call s:HL("IncSearch",    {"bg": s:search,  "fg": s:fg})
+call s:HL("IncSearch",    {"bg": s:search,  "fg": s:fg, "gui": "reverse"})
 call s:HL("Comment",      {"bg": s:bg,      "fg": s:comment})
 call s:HL("String",       {"bg": s:bg,      "fg": s:string})
 call s:HL("Constant",     {"bg": s:bg,      "fg": s:constant})

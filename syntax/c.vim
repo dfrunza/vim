@@ -161,9 +161,9 @@ else
   syn match	cErrInBracket	display contained "[);{}]\|<%\|%>"
 endif
 
-if s:ft ==# 'c' || exists("cpp_no_cpp11")
-  syn region	cBadBlock	keepend start="{" end="}" contained containedin=cParen,cBracket,cBadBlock transparent fold
-endif
+"if s:ft ==# 'c' || exists("cpp_no_cpp11")
+"  syn region	cBadBlock	keepend start="{" end="}" contained containedin=cParen,cBracket,cBadBlock transparent fold
+"endif
 
 "integer number, or floating point number without a dot and with "f".
 syn case ignore
@@ -191,7 +191,7 @@ if !exists("c_no_c99")
 endif
 
 syn match       cExprOperator   "&\|\.\|!\|+\|-\|=\|\.\|:\|>\|<\|*\|\\\|\~\|\^\|,\|;\|||\||\|/\|%"
-syn match       cSyntaxChar     "{\|}\|(\|)\|\[\|\]"
+syn match       cSyntaxChar     "(\|)"
 
 " flag an octal number with wrong digits
 syn match	cOctalError	display contained "0\o*[89]\d*"
@@ -376,9 +376,11 @@ syn region	cPreProc	start="^\s*\(%:\|#\)\s*\(pragma\>\|line\>\|warning\>\|warn\>
 
 " Highlight User Labels
 syn cluster	cMultiGroup	contains=cIncluded,cSpecial,cCommentSkip,cCommentString,cComment2String,@cCommentGroup,cCommentStartError,cUserCont,cUserLabel,cBitField,cOctalZero,cCppOutWrapper,cCppInWrapper,@cCppOutInGroup,cFormat,cNumber,cFloat,cOctal,cOctalError,cNumbersCom,cCppParen,cCppBracket,cCppString
-if s:ft ==# 'c' || exists("cpp_no_cpp11")
-  syn region	cMulti		transparent start='?' skip='::' end=':' contains=ALLBUT,@cMultiGroup,@Spell
-endif
+"dfrunza: Ternary conditional expression induces a syntax highlighting error on '}'.
+"if s:ft ==# 'c' || exists("cpp_no_cpp11")
+"  syn region	cMulti		transparent start='?' skip='::' end=':' contains=ALLBUT,@cMultiGroup,@Spell
+"endif
+
 " Avoid matching foo::bar() in C++ by requiring that the next char is not ':'
 syn cluster	cLabelGroup	contains=cUserLabel
 syn match	cUserCont	display "^\s*\I\i*\s*:$" contains=@cLabelGroup
