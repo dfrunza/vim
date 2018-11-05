@@ -22,7 +22,7 @@ let s:bg        = "White"
 let s:search    = "Yellow"
 let s:keyword   = "Black"
 let s:comment   = "Green4"
-let s:string    = "Green4"
+let s:string    = "Blue4"
 let s:special   = "Magenta4"
 let s:visual    = "#b6d6fd"
 let s:error     = "Red2"
@@ -43,7 +43,7 @@ call s:HL("Statement",    {"bg": s:bg,      "fg": s:keyword, "gui": "bold"})
 call s:HL("StorageClass", {"bg": s:bg,      "fg": s:keyword, "gui": "bold"})
 call s:HL("Identifier",   {"bg": s:bg,      "fg": s:keyword})
 call s:HL("Operator",     {"bg": s:bg,      "fg": s:operator})
-call s:HL("SyntaxChar",   {"bg": s:bg,      "fg": s:special})
+call s:HL("SyntaxChar",   {"bg": s:bg,      "fg": s:fg})
 call s:HL("Directory",    {"bg": s:bg,      "fg": s:keyword})
 call s:HL("Function",     {"bg": s:bg,      "fg": s:fg})
 call s:HL("Type",         {"bg": s:bg,      "fg": s:keyword, "gui": "bold"})

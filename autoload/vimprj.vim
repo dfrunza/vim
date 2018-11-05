@@ -560,19 +560,17 @@ function! <SID>GetVimprjRootOfFile(iFileNum)
       while (l:i < g:vimprj_recurseUpCount)
          let l:sTmp = simplify(l:sCurPath.'/'.g:vimprj_dirNameForSearch)
          if isdirectory(l:sTmp) || filereadable(l:sTmp)
-
             " directory or file with needed name found
             if empty(l:sProjectRoot)
                let l:sProjectRoot = l:sCurPath
             endif
             call add(l:lProjectRoots, l:sCurPath)
             "break
-
          endif
 
          " get upper path
          let l:sNextCurPath = simplify(l:sCurPath.'/..')
-         if (l:sNextCurPath == l:sCurPath)
+         if (l:sNextCurPath == '/')
             " we reached root of filesystem. break now
             break
          endif

@@ -252,7 +252,7 @@ if exists("c_gnu")
 endif
 
 syn keyword	cStorageClass	struct union enum typedef internal inline signed unsigned 
-syn keyword	cType   	void char int short long int8 int16 int32 int64 uchar uint ushort uint8 uint16 uint32 uint64 
+syn keyword	cType   	void char int short long int8 int16 int32 int64 uchar ushort uint ulong uint8 uint16 uint32 uint64 
 syn keyword	cType   	float double float32 float64 bool bool32 wchar_t
 syn keyword	cStorageClass	reuse use static register auto volatile extern const
 if exists("c_gnu")
