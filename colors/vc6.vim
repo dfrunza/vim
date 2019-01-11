@@ -17,31 +17,35 @@ function! s:HL(group, style)
     \ "gui="     (has_key(a:style, "gui")   ? a:style.gui  : "NONE")
 endfunction
 
-let s:fg        = "Black"
-let s:bg        = "White"
-let s:search    = "Yellow"
-let s:keyword   = "Black"
-let s:comment   = "Green4"
-let s:string    = "Blue4"
-let s:special   = "Magenta4"
-let s:visual    = "#b6d6fd"
-let s:error     = "Red2"
-let s:warning   = "Red2"
-let s:border_bg = "Grey85"
-let s:border_fg = "Black"
+let s:fg          = "Black"
+let s:bg          = "White"
+let s:search      = "Yellow"
+let s:keyword     = "#000080"
+let s:comment     = "#008080"
+let s:string      = "#008000"
+let s:special     = "#660099"
+let s:visual      = "#b6d6fd"
+let s:error       = "Red2"
+let s:warning     = "Red2"
+let s:border_bg   = "Grey85"
+let s:border_fg   = "Black"
 let s:cursor_line = "#fff4ce"
 let s:cursor      = "Red"
 let s:status_line = s:border_bg
 let s:operator    = "#007d7d"
 let s:constant    = "Red4"
+let s:variable    = "Blue4"
+let s:python_self = "#94558d"
 
 
 " Normal should come first
 call s:HL("Normal",       {"bg": s:bg,      "fg": s:fg})
 call s:HL("NonText",      {"bg": s:bg,      "fg": s:fg})
 call s:HL("Statement",    {"bg": s:bg,      "fg": s:keyword, "gui": "bold"})
+call s:HL("Keyword",      {"bg": s:bg,      "fg": s:keyword, "gui": "bold"})
 call s:HL("StorageClass", {"bg": s:bg,      "fg": s:keyword, "gui": "bold"})
 call s:HL("Identifier",   {"bg": s:bg,      "fg": s:keyword})
+call s:HL("Variable",     {"bg": s:bg,      "fg": s:variable})
 call s:HL("Operator",     {"bg": s:bg,      "fg": s:operator})
 call s:HL("SyntaxChar",   {"bg": s:bg,      "fg": s:fg})
 call s:HL("Directory",    {"bg": s:bg,      "fg": s:keyword})
@@ -72,6 +76,7 @@ call s:HL("Cursor",       {"bg": s:cursor,  "fg": s:bg})
 call s:HL("Folded",       {"bg": "#ECECEC", "fg": "#808080"})
 call s:HL("TagbarSignature", {"bg": s:bg,   "fg": s:comment})
 call s:HL("TagListTagScope", {"bg": s:bg,   "fg": s:comment})
+call s:HL("PythonSelf", {"bg": s:bg,   "fg": s:python_self})
 
 
 "=========================================================================

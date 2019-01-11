@@ -71,7 +71,7 @@ set cpo&vim
 " - 'print' is a built-in in Python 3.0 and will be highlighted as
 "   built-in below (use 'from __future__ import print_function' in 2.6)
 "
-syn keyword pythonConstant	False None True self
+syn keyword pythonConstant	False None True
 syn keyword pythonStatement	as assert break continue del exec global
 syn keyword pythonStatement	lambda nonlocal pass print return with yield
 syn keyword pythonStatement	class def nextgroup=pythonFunction skipwhite and in is not or
@@ -79,6 +79,7 @@ syn keyword pythonConditional	elif else if
 syn keyword pythonRepeat	for while
 syn keyword pythonException	except finally raise try
 syn keyword pythonInclude	from import
+syn keyword pythonSelf		self
 
 " Decorators (new in Python 2.4)
 syn match   pythonDecorator	"@" display nextgroup=pythonFunction skipwhite
@@ -97,7 +98,7 @@ syn keyword pythonTodo		FIXME NOTE NOTES TODO XXX contained
 syn region  pythonString
       \ start=+[uU]\=\z(['"]\)+ end="\z1" skip="\\\\\|\\\z1"
       \ contains=pythonEscape,@Spell
-syn region  pythonString
+syn region  pythonComment
       \ start=+[uU]\=\z('''\|"""\)+ end="\z1" keepend
       \ contains=pythonEscape,pythonSpaceError,pythonDoctest,@Spell
 syn region  pythonRawString
@@ -261,6 +262,7 @@ if version >= 508 || !exists("did_python_syn_inits")
   endif
 
   " The default highlight links.  Can be overridden later.
+  HiLink pythonSelf		PythonSelf
   HiLink pythonConstant		Constant
   HiLink pythonStatement	Statement
   HiLink pythonConditional	Conditional
