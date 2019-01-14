@@ -80,6 +80,7 @@ syn keyword pythonRepeat	for while
 syn keyword pythonException	except finally raise try
 syn keyword pythonInclude	from import
 syn keyword pythonSelf		self
+syn match   pythonOperator      "!\|+\|-\|=\|\.\|:\|>\|<\|*\|\\\|\~\|\^\|,\|;\|||\||\|/\|%"
 
 " Decorators (new in Python 2.4)
 syn match   pythonDecorator	"@" display nextgroup=pythonFunction skipwhite
