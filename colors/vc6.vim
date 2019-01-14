@@ -35,7 +35,6 @@ let s:status_line = s:border_bg
 let s:operator    = "#007d7d"
 let s:constant    = "Red4"
 let s:variable    = "Blue4"
-let s:python_self = "#94558d"
 
 
 " Normal should come first
@@ -44,7 +43,7 @@ call s:HL("NonText",      {"bg": s:bg,      "fg": s:fg})
 call s:HL("Statement",    {"bg": s:bg,      "fg": s:keyword, "gui": "bold"})
 call s:HL("Keyword",      {"bg": s:bg,      "fg": s:keyword, "gui": "bold"})
 call s:HL("StorageClass", {"bg": s:bg,      "fg": s:keyword, "gui": "bold"})
-call s:HL("Identifier",   {"bg": s:bg,      "fg": s:keyword})
+call s:HL("Identifier",   {"bg": s:bg,      "fg": s:fg})
 call s:HL("Variable",     {"bg": s:bg,      "fg": s:variable})
 call s:HL("Operator",     {"bg": s:bg,      "fg": s:operator})
 call s:HL("SyntaxChar",   {"bg": s:bg,      "fg": s:fg})
@@ -76,7 +75,8 @@ call s:HL("Cursor",       {"bg": s:cursor,  "fg": s:bg})
 call s:HL("Folded",       {"bg": "#ECECEC", "fg": "#808080"})
 call s:HL("TagbarSignature", {"bg": s:bg,   "fg": s:comment})
 call s:HL("TagListTagScope", {"bg": s:bg,   "fg": s:comment})
-call s:HL("PythonSelf", {"bg": s:bg,   "fg": s:python_self})
+call s:HL("PythonSelf",      {"bg": s:bg,   "fg": "#94558d"})
+call s:HL("BnfProduction",   {"bg": s:bg,   "fg": s:keyword})
 
 
 "=========================================================================
