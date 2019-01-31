@@ -21,7 +21,7 @@ let s:fg          = "Black"
 let s:bg          = "White"
 let s:search      = "Yellow"
 let s:keyword     = "#000080"
-let s:comment     = "#008080"
+let s:comment     = "#808080"
 let s:string      = "#008000"
 let s:special     = "#660099"
 let s:visual      = "#b6d6fd"
@@ -54,7 +54,7 @@ call s:HL("PreProc",      {"bg": s:bg,      "fg": s:special})
 call s:HL("Search",       {"bg": s:search,  "fg": s:fg})
 call s:HL("IncSearch",    {"bg": s:search,  "fg": s:fg, "gui": "reverse"})
 call s:HL("Comment",      {"bg": s:bg,      "fg": s:comment})
-call s:HL("String",       {"bg": s:bg,      "fg": s:string})
+call s:HL("String",       {"bg": s:bg,      "fg": s:string, "gui": "bold"})
 call s:HL("Constant",     {"bg": s:bg,      "fg": s:constant})
 call s:HL("Special",      {"bg": s:bg,      "fg": s:special})
 call s:HL("SpecialKey",   {"bg": s:bg,      "fg": s:special})
@@ -71,12 +71,12 @@ call s:HL("Title",        {"bg": s:bg,          "fg": s:special})
 call s:HL("Pmenu",        {"bg": s:border_bg,   "fg": "#191970"})
 call s:HL("PmenuSel",     {"bg": "SlateBlue",   "fg": s:bg})
 call s:HL("CursorLine",   {"bg": s:cursor_line, "fg": "NONE", "gui": "NONE"})
-call s:HL("Cursor",       {"bg": s:cursor,  "fg": s:bg})
-call s:HL("Folded",       {"bg": "#ECECEC", "fg": "#808080"})
+call s:HL("Cursor",       {"bg": s:cursor,  "fg": s:bg, "gui":"bold"})
+call s:HL("Folded",       {"bg": s:bg, "fg": s:comment})
 call s:HL("TagbarSignature", {"bg": s:bg,   "fg": s:comment})
 call s:HL("TagListTagScope", {"bg": s:bg,   "fg": s:comment})
-call s:HL("PythonSelf",      {"bg": s:bg,   "fg": "#94558d"})
-call s:HL("BnfProduction",   {"bg": s:bg,   "fg": s:keyword})
+" call s:HL("PythonSelf",      {"bg": s:bg,   "fg": "#94558d"})
+call s:HL("PythonSelf",      {"bg": s:bg,   "fg": "#808080"})
 
 
 "=========================================================================
