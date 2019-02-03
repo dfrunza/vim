@@ -117,8 +117,7 @@ set completeopt=menu,longest
 "set makeprg=msbuild\ /nologo\ /v:q\ /property:GenerateFullPaths=true
 
 " make! ->  do not jump to first error
-nmap <A-m> :wa<CR>:make!<CR><CR>
-nmap <F8> :!deploy<CR><CR>
+nmap <A-k> :wa<CR>:make!<CR><CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
