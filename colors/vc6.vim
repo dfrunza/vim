@@ -22,7 +22,7 @@ let s:fg          = "Black"
 let s:bg          = "White"
 let s:search      = "Yellow"
 let s:keyword     = "#000080"
-let s:comment     = "#008080"
+let s:comment     = "#808080"
 let s:string      = "#008000"
 let s:special     = "#660099"
 let s:visual      = "#b6d6fd"
@@ -76,8 +76,8 @@ call s:HL("Cursor",       {"bg": s:cursor,  "fg": s:bg, "gui": "bold"})
 call s:HL("Folded",       {"bg": s:bg, "fg": "#808080"})
 call s:HL("TagbarSignature", {"bg": s:bg,   "fg": s:comment})
 call s:HL("TagListTagScope", {"bg": s:bg,   "fg": s:comment})
-call s:HL("PythonSelf",      {"bg": s:bg,   "fg": "#94558d"})
-call s:HL("BnfProduction",   {"bg": s:bg,   "fg": s:keyword})
+" call s:HL("PythonSelf",      {"bg": s:bg,   "fg": "#94558d"})
+call s:HL("PythonSelf",      {"bg": s:bg,   "fg": "#808080"})
 
 
 "=========================================================================
