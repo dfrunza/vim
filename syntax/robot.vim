@@ -17,17 +17,15 @@ syn match robotEllipsis             display "\.\.\."
 " Special (escaped) character as defined in Robot's syntax.
 syn match robotSpecial              display "\\\(\${.*}\|\\\|#\|[n|r|t]\)\|\\"
 syn match robotVariable             "\(\$\|@\|&\){.\{-}}"
-" Operators
 syn match robotOperator             "==\|=\|\*\*\*"
 syn match robotCommonSet            "\[*\(Documentation\|Arguments\|Tags\|Template\|Timeout\|Return\)\]*"
-syn match robotSettings             "\(Settings\|Documentation\|Keywords\|Test Setup\|Test Teardown\|Test Cases\|Force Tags\|Resource\|Variables\|Library\)"
+syn match robotSettings             "\(Settings\|Documentation\|Keywords\|Suite Setup\|Suite Teardown\|Test Setup\|Test Teardown\|Test Cases\|Force Tags\|Resource\|Variables\|Library\)"
 
 "------------------------------------------------------------------------
 " Regions
 "------------------------------------------------------------------------
-" Single-line comments. Are there multi-line comments?
-syn region robotComment     display start="#" excludenl end="$"
-"syn region robotComment     display start="\[*\(Documentation\|\.\.\.\)\]*" contains=robotCommonSet,robotSettings,robotEllipsis excludenl end="$"
+syn region robotComment     display start="#" contains=robotSpecial,robotVariable excludenl end="$"
+"syn region robotComment     display start="\[Documentation\]\|\.\.\." contains=robotCommonSet excludenl end="$"
 syn region robotTags        display start="\[*\(Tags\|Force Tags\)\]*" contains=robotCommonSet,robotSettings excludenl end="$"
 syn region robotString      start="\"\|\'" excludenl end="\"\|\'"
 
