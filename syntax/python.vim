@@ -75,6 +75,7 @@ syn keyword pythonConstant	False None True
 syn keyword pythonStatement	as assert break continue del exec global
 syn keyword pythonStatement	lambda nonlocal pass print return with yield
 syn keyword pythonStatement	class def nextgroup=pythonFunction skipwhite and in is not or
+syn keyword pythonStatement	object open print list dict int str basestring unicode 
 syn keyword pythonConditional	elif else if
 syn keyword pythonRepeat	for while
 syn keyword pythonException	except finally raise try
@@ -182,14 +183,14 @@ if !exists("python_no_builtin_highlight")
   syn keyword pythonBuiltin	frozenset getattr globals hasattr hash
   syn keyword pythonBuiltin	help hex id input int isinstance
   syn keyword pythonBuiltin	issubclass iter len list locals map max
-  syn keyword pythonBuiltin	min next object oct open ord pow print
+  syn keyword pythonBuiltin	min next oct ord pow
   syn keyword pythonBuiltin	property range repr reversed round set
-  syn keyword pythonBuiltin	setattr slice sorted staticmethod str
+  syn keyword pythonBuiltin	setattr slice sorted staticmethod
   syn keyword pythonBuiltin	sum super tuple type vars zip __import__
   " Python 2.6 only
-  syn keyword pythonBuiltin	basestring callable cmp execfile file
+  syn keyword pythonBuiltin	callable cmp execfile file
   syn keyword pythonBuiltin	long raw_input reduce reload unichr
-  syn keyword pythonBuiltin	unicode xrange
+  syn keyword pythonBuiltin	xrange
   " Python 3.0 only
   syn keyword pythonBuiltin	ascii bytearray bytes exec memoryview
   " non-essential built-in functions; Python 2.6 only
