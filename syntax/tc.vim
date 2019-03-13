@@ -3,7 +3,7 @@ if exists("b:current_syntax")
   finish
 endif
 
-syn keyword tcKeyword   proc var return if while
+syn keyword tcKeyword   proc var return if else while do struct
 syn region tcDoubleQuotedString start="\"" end="\""
 syn region tcSingleQuotedString start="'" end="'"
 syn region tcComment start="/\*" end="\*/"
