@@ -73,9 +73,9 @@ set cpo&vim
 "
 syn keyword pythonConstant	False None True
 syn keyword pythonStatement	as assert break continue del exec global
-syn keyword pythonStatement	lambda nonlocal pass print return with yield
+syn keyword pythonStatement	lambda nonlocal pass return with yield
 syn keyword pythonStatement	class def nextgroup=pythonFunction skipwhite and in is not or
-syn keyword pythonStatement	object open print list dict int str basestring unicode 
+syn keyword pythonStatement	object
 syn keyword pythonConditional	elif else if
 syn keyword pythonRepeat	for while
 syn keyword pythonException	except finally raise try
@@ -199,32 +199,32 @@ endif
 
 " From the 'Python Library Reference' class hierarchy at the bottom.
 " http://docs.python.org/library/exceptions.html
-if !exists("python_no_exception_highlight")
-  " builtin base exceptions (only used as base classes for other exceptions)
-  syn keyword pythonExceptions	BaseException Exception
-  syn keyword pythonExceptions	ArithmeticError EnvironmentError
-  syn keyword pythonExceptions	LookupError
-  " builtin base exception removed in Python 3.0
-  syn keyword pythonExceptions	StandardError
-  " builtin exceptions (actually raised)
-  syn keyword pythonExceptions	AssertionError AttributeError BufferError
-  syn keyword pythonExceptions	EOFError FloatingPointError GeneratorExit
-  syn keyword pythonExceptions	IOError ImportError IndentationError
-  syn keyword pythonExceptions	IndexError KeyError KeyboardInterrupt
-  syn keyword pythonExceptions	MemoryError NameError NotImplementedError
-  syn keyword pythonExceptions	OSError OverflowError ReferenceError
-  syn keyword pythonExceptions	RuntimeError StopIteration SyntaxError
-  syn keyword pythonExceptions	SystemError SystemExit TabError TypeError
-  syn keyword pythonExceptions	UnboundLocalError UnicodeError
-  syn keyword pythonExceptions	UnicodeDecodeError UnicodeEncodeError
-  syn keyword pythonExceptions	UnicodeTranslateError ValueError VMSError
-  syn keyword pythonExceptions	WindowsError ZeroDivisionError
-  " builtin warnings
-  syn keyword pythonExceptions	BytesWarning DeprecationWarning FutureWarning
-  syn keyword pythonExceptions	ImportWarning PendingDeprecationWarning
-  syn keyword pythonExceptions	RuntimeWarning SyntaxWarning UnicodeWarning
-  syn keyword pythonExceptions	UserWarning Warning
-endif
+"if !exists("python_no_exception_highlight")
+"  " builtin base exceptions (only used as base classes for other exceptions)
+"  syn keyword pythonExceptions	BaseException Exception
+"  syn keyword pythonExceptions	ArithmeticError EnvironmentError
+"  syn keyword pythonExceptions	LookupError
+"  " builtin base exception removed in Python 3.0
+"  syn keyword pythonExceptions	StandardError
+"  " builtin exceptions (actually raised)
+"  syn keyword pythonExceptions	AssertionError AttributeError BufferError
+"  syn keyword pythonExceptions	EOFError FloatingPointError GeneratorExit
+"  syn keyword pythonExceptions	IOError ImportError IndentationError
+"  syn keyword pythonExceptions	IndexError KeyError KeyboardInterrupt
+"  syn keyword pythonExceptions	MemoryError NameError NotImplementedError
+"  syn keyword pythonExceptions	OSError OverflowError ReferenceError
+"  syn keyword pythonExceptions	RuntimeError StopIteration SyntaxError
+"  syn keyword pythonExceptions	SystemError SystemExit TabError TypeError
+"  syn keyword pythonExceptions	UnboundLocalError UnicodeError
+"  syn keyword pythonExceptions	UnicodeDecodeError UnicodeEncodeError
+"  syn keyword pythonExceptions	UnicodeTranslateError ValueError VMSError
+"  syn keyword pythonExceptions	WindowsError ZeroDivisionError
+"  " builtin warnings
+"  syn keyword pythonExceptions	BytesWarning DeprecationWarning FutureWarning
+"  syn keyword pythonExceptions	ImportWarning PendingDeprecationWarning
+"  syn keyword pythonExceptions	RuntimeWarning SyntaxWarning UnicodeWarning
+"  syn keyword pythonExceptions	UserWarning Warning
+"endif
 
 if exists("python_space_error_highlight")
   " trailing whitespace
@@ -282,12 +282,12 @@ if version >= 508 || !exists("did_python_syn_inits")
   if !exists("python_no_number_highlight")
     HiLink pythonNumber		Number
   endif
-  if !exists("python_no_builtin_highlight")
-    HiLink pythonBuiltin	Function
-  endif
-  if !exists("python_no_exception_highlight")
-    HiLink pythonExceptions	Structure
-  endif
+"  if !exists("python_no_builtin_highlight")
+"    HiLink pythonBuiltin	Special
+"  endif
+"  if !exists("python_no_exception_highlight")
+"    HiLink pythonExceptions	Structure
+"  endif
   if exists("python_space_error_highlight")
     HiLink pythonSpaceError	Error
   endif
