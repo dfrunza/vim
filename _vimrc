@@ -5,22 +5,23 @@ set guifont=Liberation\ Mono\ 10
 
 colors vc6
 
-"  GUI options
+" GUI options
 set guioptions=iegrLt " 'm' -> have the menu back.
 set statusline=%F
 
-" Configure Alt+Space to open up the Windows menu
+" Alt+Space opens up the Windows menu
 set winaltkeys=yes
 nmap <M-Space> :simalt ~<CR>
 
-" Startup
-"set columns=174
-"set lines=55
-"winpos 360 0
-"au GUIEnter * simalt ~x
-"au VimEnter * vsp
+" Disable annoyances
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+inoremap <F1> <nop>
+noremap q <nop>
+let g:netrw_banner=0
+let g:bufExplorerDefaultHelp=0
 
-"  Indentation settings
+" Indentation settings
 set shiftwidth=2 " indendation level
 set tabstop=2
 set softtabstop=0
@@ -30,27 +31,8 @@ set smartindent
 set cindent
 set cinoptions+=(0)
 set textwidth=200
-
-" If the End-Of-Line at the end of file is suppressed, then Vim will use 'LF' as the newline character,
-" effectively switching to Unix format. Couldn't figure out how to have 'noeol' AND keep 'CR\LF' line-endings.
-"set binary
-"set noeol
-
-set encoding=utf-8
-set fileencoding=utf-8
-
-" r       Automatically insert the current comment leader after hitting
-"         <Enter> in Insert mode.
-" o       Automatically insert the current comment leader after hitting 'o' or
-"         'O' in Normal mode.
-set formatoptions=cql
-
 set nocursorline
 set guicursor+=a:blinkon0
-
-" Minimal number of lines to keep above and below buffer.
-"set scrolloff=7
-
 syntax on
 filetype plugin on
 set backspace=indent,eol,start
@@ -67,6 +49,20 @@ set smartcase
 set clipboard=unnamed
 set autoread
 set nowrap
+
+" If the End-Of-Line at the end of file is suppressed, then Vim will use 'LF' as the newline character,
+" effectively switching to Unix format. Couldn't figure out how to have 'noeol' AND keep 'CR\LF' line-endings.
+"set binary
+"set noeol
+
+set encoding=utf-8
+set fileencoding=utf-8
+
+" r       Automatically insert the current comment leader after hitting
+"         <Enter> in Insert mode.
+" o       Automatically insert the current comment leader after hitting 'o' or
+"         'O' in Normal mode.
+set formatoptions=cql
 
 set regexpengine=1
 set nocompatible
@@ -87,23 +83,16 @@ nmap <silent> gg :nohlsearch<CR>
 nmap <C-s> :w<CR>
 nmap <C-b> :ToggleBufExplorer<CR>
 nmap <leader>q <leader>bd
-
-" Disable annoyances
-set noerrorbells visualbell t_vb=
-autocmd GUIEnter * set visualbell t_vb=
-inoremap <F1> <nop>
-" 'recording' shit
-noremap q <nop>
-let g:netrw_banner=0
-let g:bufExplorerDefaultHelp=0
+inoremap <C-Space> <C-p>
 
 set foldmethod=marker
 set foldmarker=>--,--<
 set nofoldenable
 
-let g:AutoPairsCenterLine=0
-
 set makeprg=./build.sh\ %
+
+" Do not jump to first error after 'make!'
+nmap <A-k> :wa<CR>:make!<CR><CR>
 
 "  MSVC
 "-----
@@ -117,8 +106,7 @@ set completeopt=menu,longest
 "set errorformat=%f(%l\\,%c):\ %t%*[^\ ]\ CS%n:\ %m
 "set makeprg=msbuild\ /nologo\ /v:q\ /property:GenerateFullPaths=true
 
-" make! ->  do not jump to first error
-nmap <A-k> :wa<CR>:make!<CR><CR>
+let g:AutoPairsCenterLine=0
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -133,7 +121,11 @@ let g:Tlist_Process_File_Always=1
 let g:Tlist_WinWidth=50
 let g:Tlist_Sort_Type="name"
 
-inoremap <C-Space> <C-p>
+let g:indexer_debugLogLevel=0
+let g:indexer_backgroundDisabled=1
+let g:indexer_ctagsJustAppendTagsAtFileSave=1
+
+let g:qf_window_bottom=1
 
 let g:easytags_auto_update=0
 let g:easytags_auto_highlight=1
