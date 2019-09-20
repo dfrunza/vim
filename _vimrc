@@ -1,7 +1,7 @@
 "set guifont=Courier\ 10\ Pitch\ 10
-"set guifont=Liberation\ Mono\ 10
+set guifont=Liberation\ Mono\ 10
 "set guifont=Input\ 9
-set guifont=Average\ Mono\ 10
+"set guifont=Average\ Mono\ 10
 
 colors vc6
 
@@ -92,12 +92,13 @@ nmap <leader>q <leader>bd
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 inoremap <F1> <nop>
-"inoremap q <nop>
+" 'recording' shit
+noremap q <nop>
 let g:netrw_banner=0
 let g:bufExplorerDefaultHelp=0
 
 set foldmethod=marker
-set foldmarker=+--,--+
+set foldmarker=>--,--<
 set nofoldenable
 
 let g:AutoPairsCenterLine=0
@@ -132,5 +133,8 @@ let g:Tlist_Process_File_Always=1
 let g:Tlist_WinWidth=50
 let g:Tlist_Sort_Type="name"
 
-inoremap <C-Space> <C-x><C-o>
+inoremap <C-Space> <C-p>
 
+let g:easytags_auto_update=0
+let g:easytags_auto_highlight=1
+let g:easytags_file=''
