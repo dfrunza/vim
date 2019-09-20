@@ -18,7 +18,7 @@ syn keyword	cStatement	goto break return continue asm sizeof local_persist globa
 syn keyword	cLabel		case default
 syn keyword	cConditional	if else switch
 syn keyword	cRepeat		while for do
-syn keyword     cType           void char int float double
+"syn keyword     cType           void char int float double
 
 syn keyword	cTodo		contained TODO FIXME XXX
 
@@ -190,8 +190,8 @@ if !exists("c_no_c99")
   syn match	cFloat		display contained "0x\x\+\.\=p[-+]\=\d\+[fl]\=\>"
 endif
 
-syn match       cExprOperator   "&\|\.\|!\|+\|-\|=\|\.\|:\|>\|<\|*\|\\\|\~\|\^\|,\|;\|||\||\|/\|%"
-syn match       cSyntaxChar     "(\|)"
+"syn match       cExprOperator   "&\|\.\|!\|+\|-\|=\|\.\|:\|>\|<\|*\|\\\|\~\|\^\|,\|;\|||\||\|/\|%"
+"syn match       cSyntaxChar     "(\|)"
 
 " flag an octal number with wrong digits
 syn match	cOctalError	display contained "0\o*[89]\d*"
@@ -434,7 +434,7 @@ hi def link cCommentStartError	cError
 hi def link cSpaceError		cError
 hi def link cSpecialError	cError
 hi def link cCurlyError		cError
-hi def link cOperator		Statement
+"hi def link cOperator		Statement
 hi def link cStructure		Structure
 hi def link cStorageClass	StorageClass
 hi def link cInclude		Include
@@ -462,8 +462,8 @@ hi def link cCppInElse2		cCppOutIf2
 hi def link cCppOutIf2		cCppOut2  " Old syntax group for #if 0 body
 hi def link cCppOut2		cCppOut  " Old syntax group for #if of #if 0
 hi def link cCppOut		Comment
-hi def link cExprOperator       Operator
-hi def link cSyntaxChar         SyntaxChar
+"hi def link cExprOperator       Operator
+"hi def link cSyntaxChar         SyntaxChar
 
 let b:current_syntax = "c"
 
