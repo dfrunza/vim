@@ -11,6 +11,7 @@ let g:easytags_file=s:sPath.'/indexer_files_tags/tags'
 
 set errorformat=
 set errorformat+=%E%f:%l:%c:\ %t\rror:\ %m,%-C,%-Z%p^
+set errorformat+=%f:%l:%c:\ fatal\ %t\rror:\ %m,%-C,%-Z%p^
 set errorformat+=%f:%l:%c:\ %t\arning:\ %m,%-C,%-Z%p^
 set errorformat+=%D%*\\a:\ Entering\ directory\ [`']%f'
 set errorformat+=%X%*\\a:\ Leaving\ directory\ [`']%f'
