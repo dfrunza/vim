@@ -81,6 +81,7 @@ syn keyword pythonRepeat	for while
 syn keyword pythonException	except finally raise try
 syn keyword pythonInclude	from import
 syn keyword pythonSelf		self cls
+"syn match   pythonOperator      "!\|+\|-\|=\|\.\|:\|>\|<\|*\|\\\|\~\|\^\|,\|;\|||\||\|/\|%"
 
 " Decorators (new in Python 2.4)
 syn match   pythonDecorator	"@" display nextgroup=pythonFunction skipwhite
@@ -89,37 +90,33 @@ syn match   pythonDecorator	"@" display nextgroup=pythonFunction skipwhite
 " interpreted as a function inside the contained environment of
 " doctests.
 " A dot must be allowed because of @MyClass.myfunc decorators.
-"syn match   pythonFunction
-"      \ "\%(\%(def\s\|class\s\|@\)\s*\)\@<=\h\%(\w\|\.\)*" contained
+syn match   pythonFunction
+      \ "\%(\%(def\s\|class\s\|@\)\s*\)\@<=\h\%(\w\|\.\)*" contained
 
 syn match   pythonComment	"#.*$" contains=pythonTodo,@Spell
 syn keyword pythonTodo		FIXME NOTE NOTES TODO XXX contained
 
 " Triple-quoted strings can contain doctests.
-"syn region  pythonString
-"      \ start=+[uU]\=\z(['"]\)+ end="\z1" skip="\\\\\|\\\z1"
-"      \ contains=pythonEscape,@Spell
-syn region		pythonString	start=+"+ skip=+\\"+ end=+"+ contains=cSpecial,@Spell extend
-syn region		pythonString	start=+"""+ skip=+\\"+ end=+"""+ contains=cSpecial,@Spell extend
-"syn region  pythonComment
-"      \ start=+[uU]\=\z('''\|"""\)+ end="\z1" keepend
-"      \ contains=pythonEscape,pythonSpaceError,pythonDoctest,@Spell
-"syn region  pythonRawString
-"      \ start=+[uU]\=[rR]\z(['"]\)+ end="\z1" skip="\\\\\|\\\z1"
-"      \ contains=@Spell
-"syn region  pythonRawString
-"      \ start=+[uU]\=[rR]\z('''\|"""\)+ end="\z1" keepend
-"      \ contains=pythonSpaceError,pythonDoctest,@Spell
+syn region  pythonString
+      \ start=+[uU]\=\z(['"]\)+ end="\z1" skip="\\\\\|\\\z1"
+      \ contains=pythonEscape,@Spell
+syn region  pythonComment
+      \ start=+[uU]\=\z('''\|"""\)+ end="\z1" keepend
+      \ contains=pythonEscape,pythonSpaceError,pythonDoctest,@Spell
+syn region  pythonRawString
+      \ start=+[uU]\=[rR]\z(['"]\)+ end="\z1" skip="\\\\\|\\\z1"
+      \ contains=@Spell
+syn region  pythonRawString
+      \ start=+[uU]\=[rR]\z('''\|"""\)+ end="\z1" keepend
+      \ contains=pythonSpaceError,pythonDoctest,@Spell
 
-
-syn match	pythonEscape  display contained "\\\(x\x\+\|\o\{1,3}\|.\|$\)"
-"syn match   pythonEscape	+\\[abfnrtv'"\\]+ contained
-"syn match   pythonEscape	"\\\o\{1,3}" contained
-"syn match   pythonEscape	"\\x\x\{2}" contained
-"syn match   pythonEscape	"\%(\\u\x\{4}\|\\U\x\{8}\)" contained
+syn match   pythonEscape	+\\[abfnrtv'"\\]+ contained
+syn match   pythonEscape	"\\\o\{1,3}" contained
+syn match   pythonEscape	"\\x\x\{2}" contained
+syn match   pythonEscape	"\%(\\u\x\{4}\|\\U\x\{8}\)" contained
 " Python allows case-insensitive Unicode IDs: http://www.unicode.org/charts/
-"syn match   pythonEscape	"\\N{\a\+\%(\s\a\+\)*}" contained
-"syn match   pythonEscape	"\\$"
+syn match   pythonEscape	"\\N{\a\+\%(\s\a\+\)*}" contained
+syn match   pythonEscape	"\\$"
 
 if exists("python_highlight_all")
   if exists("python_no_builtin_highlight")
@@ -154,21 +151,19 @@ endif
 "
 " and so on, as specified in the 'Python Language Reference'.
 " http://docs.python.org/reference/lexical_analysis.html#numeric-literals
-
-
-"if !exists("python_no_number_highlight")
-"  " numbers (including longs and complex)
-"  syn match   pythonNumber	"\<0[oO]\=\o\+[Ll]\=\>"
-"  syn match   pythonNumber	"\<0[xX]\x\+[Ll]\=\>"
-"  syn match   pythonNumber	"\<0[bB][01]\+[Ll]\=\>"
-"  syn match   pythonNumber	"\<\%([1-9]\d*\|0\)[Ll]\=\>"
-"  syn match   pythonNumber	"\<\d\+[jJ]\>"
-"  syn match   pythonNumber	"\<\d\+[eE][+-]\=\d\+[jJ]\=\>"
-"  syn match   pythonNumber
-"	\ "\<\d\+\.\%([eE][+-]\=\d\+\)\=[jJ]\=\%(\W\|$\)\@="
-"  syn match   pythonNumber
-"	\ "\%(^\|\W\)\@<=\d*\.\d\+\%([eE][+-]\=\d\+\)\=[jJ]\=\>"
-"endif
+if !exists("python_no_number_highlight")
+  " numbers (including longs and complex)
+  syn match   pythonNumber	"\<0[oO]\=\o\+[Ll]\=\>"
+  syn match   pythonNumber	"\<0[xX]\x\+[Ll]\=\>"
+  syn match   pythonNumber	"\<0[bB][01]\+[Ll]\=\>"
+  syn match   pythonNumber	"\<\%([1-9]\d*\|0\)[Ll]\=\>"
+  syn match   pythonNumber	"\<\d\+[jJ]\>"
+  syn match   pythonNumber	"\<\d\+[eE][+-]\=\d\+[jJ]\=\>"
+  syn match   pythonNumber
+	\ "\<\d\+\.\%([eE][+-]\=\d\+\)\=[jJ]\=\%(\W\|$\)\@="
+  syn match   pythonNumber
+	\ "\%(^\|\W\)\@<=\d*\.\d\+\%([eE][+-]\=\d\+\)\=[jJ]\=\>"
+endif
 
 " Group the built-ins in the order in the 'Python Library Reference' for
 " easier comparison.
@@ -258,7 +253,7 @@ if !exists("python_no_doctest_highlight")
 endif
 
 " Sync at the beginning of class, function, or method definition.
-"syn sync match pythonSync grouphere NONE "^\s*\%(def\|class\)\s\+\h\w*\s*("
+syn sync match pythonSync grouphere NONE "^\s*\%(def\|class\)\s\+\h\w*\s*("
 
 if version >= 508 || !exists("did_python_syn_inits")
   if version <= 508
