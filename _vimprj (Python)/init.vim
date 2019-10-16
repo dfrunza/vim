@@ -1,10 +1,15 @@
 " See the article http://dmitryfrank.com/articles/vim_project_code_navigation
 
-" Get path to ".vimprj" folder
-let s:sPath = expand('<sfile>:p:h')
+" Path to .vimprj dir
+let s:sVimprjPath = expand('<sfile>:p:h')
+ 
+" Path to project dir
+let s:sProjectPath = simplify(s:sVimprjPath.'/..')
 
-let g:indexer_ctagsCommandLineOptions="--fields=+iaSl --extras=+q --languages=Python"
+let g:indexer_ctagsCommandLineOptions="--exclude=".s:sProjectPath."/env/* --fields=+Sln --languages=Python"
 
 " Specify the project's 'indexer_files'"
-let g:indexer_indexerListFilename = s:sPath.'/indexer_files'
-let g:easytags_file=s:sPath.'/indexer_files_tags/tags'
+let g:indexer_indexerListFilename = s:sVimprjPath.'/indexer_files'
+let g:easytags_file=s:sVimprjPath.'/indexer_files_tags/tags'
+
+set nocindent
