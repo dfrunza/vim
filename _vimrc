@@ -1,5 +1,5 @@
 "set guifont=Courier\ 10\ Pitch\ 10
-set guifont=Liberation\ Mono\ 10
+set guifont=Liberation_Mono:h11:cANSI
 "set guifont=Input\ 9
 "set guifont=Average\ Mono\ 10
 
@@ -16,6 +16,7 @@ nmap <M-Space> :simalt ~<CR>
 " Disable annoyances
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
+autocmd FocusGained * :redraw!
 inoremap <F1> <nop>
 noremap q <nop>
 let g:netrw_banner=0
@@ -31,7 +32,7 @@ set smartindent
 set cindent
 set cinoptions+=(0)
 set textwidth=200
-set nocursorline
+set cursorline
 set guicursor+=a:blinkon0
 syntax on
 filetype plugin on
