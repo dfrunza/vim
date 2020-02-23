@@ -3,7 +3,12 @@ set guifont=Cousine:h11:cANSI
 "set guifont=Input\ 9
 "set guifont=Average\ Mono\ 10
 
-colors vc6
+let term = &term
+if term == "win32"
+  colorscheme slate
+else
+  colorscheme vc6
+endif
 
 " GUI options
 set guioptions=iegrLt " 'm' -> have the menu back.
