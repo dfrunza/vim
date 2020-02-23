@@ -1,5 +1,5 @@
 "set guifont=Courier\ 10\ Pitch\ 10
-set guifont=Liberation_Mono:h11:cANSI
+set guifont=Cousine:h11:cANSI
 "set guifont=Input\ 9
 "set guifont=Average\ Mono\ 10
 
@@ -11,7 +11,7 @@ set statusline=%F
 
 " Alt+Space opens up the Windows menu
 set winaltkeys=yes
-nmap <M-Space> :simalt ~<CR>
+nmap <A-Space> :simalt ~<CR>
 
 " Disable annoyances
 set noerrorbells visualbell t_vb=
