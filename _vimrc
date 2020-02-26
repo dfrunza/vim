@@ -1,5 +1,4 @@
-"set guifont=Courier\ 10\ Pitch\ 10
-set guifont=Cousine:h11:cANSI
+set guifont=Liberation_Mono:h11:cANSI
 "set guifont=Input\ 9
 "set guifont=Average\ Mono\ 10
 
