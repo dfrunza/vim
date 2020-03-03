@@ -20,7 +20,6 @@ nmap <A-Space> :simalt ~<CR>
 " Disable annoyances
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
-autocmd FocusGained * :redraw!
 inoremap <F1> <nop>
 noremap q <nop>
 let g:netrw_banner=0
