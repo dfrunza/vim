@@ -50,7 +50,7 @@ set shiftround
 set showmatch
 set ignorecase
 set smartcase
-set clipboard=unnamed
+set clipboard=unnamedplus
 set autoread
 set nowrap
 
