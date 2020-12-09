@@ -49,8 +49,6 @@ syn match   p4Preprocessor   '#(if|ifdef|ifndef|elif|else) .*$'
 syn match   p4Preprocessor   '#(endif|defined|line|file) .*$'
 syn match   p4Preprocessor   '#(error|warning) .*$'
 
-syn keyword p4Type           bit bool int varbit void error
-
 " Integer Literals
 
 syn match   p4Int            '[0-9][0-9_]*'  
@@ -61,7 +59,6 @@ syn match   p4OctalInt       '0[oO][0-7_]\+'
 syn match   p4BinaryInt      '0[bB][01_]\+'
 
 
-syn region  p4SizedType     start='(bit|int|varbit)\<' end='\>'
 syn keyword p4Operators     and or not &&& mask
 
 

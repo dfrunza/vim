@@ -10,6 +10,5 @@ let g:indexer_ctagsCommandLineOptions="--exclude=".s:sProjectPath."/env/* --fiel
 
 " Specify the project's 'indexer_files'"
 let g:indexer_indexerListFilename = s:sVimprjPath.'/indexer_files'
-let g:easytags_file=s:sVimprjPath.'/indexer_files_tags/tags'
 
 set nocindent
