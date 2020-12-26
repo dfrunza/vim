@@ -7,7 +7,6 @@ let g:indexer_ctagsCommandLineOptions="--fields=+iaSl --C-kinds=+p --C++-kinds=+
 
 " Specify the project's 'indexer_files'"
 let g:indexer_indexerListFilename = s:sPath.'/indexer_files'
-let g:easytags_file=s:sPath.'/indexer_files_tags/tags'
 
 set shiftwidth=2 " indendation level
 set tabstop=2

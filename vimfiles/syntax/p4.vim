@@ -49,8 +49,6 @@ syn match   p4Preprocessor   '#(if|ifdef|ifndef|elif|else) .*$'
 syn match   p4Preprocessor   '#(endif|defined|line|file) .*$'
 syn match   p4Preprocessor   '#(error|warning) .*$'
 
-syn keyword p4Type           bit bool int varbit void error
-
 " Integer Literals
 
 syn match   p4Int            '[0-9][0-9_]*'  
@@ -61,23 +59,7 @@ syn match   p4OctalInt       '0[oO][0-7_]\+'
 syn match   p4BinaryInt      '0[bB][01_]\+'
 
 
-syn region  p4SizedType     start='(bit|int|varbit)\<' end='\>'
-syn match   p4UserType      '[A-Za-z_][A-Za-z0-9_]*[_][t]\W'
 syn keyword p4Operators     and or not &&& mask
-
-
-" Header Methods
-syn keyword p4Primitive     isValid setValid setInvalid
-" Table Methods
-syn keyword p4Primitive     hit action_run
-" Packet_in methods
-syn keyword p4Primitive     extract lookahead advance length
-" Packet_out methods  
-syn keyword p4Primitive     emit
-" Known parser states
-syn keyword p4Primitive     accept reject
-" Misc
-syn keyword p4Primitive     NoAction
 
 
 syn keyword p4Conditional   if else select
@@ -85,9 +67,6 @@ syn keyword p4Statement     return
 
 " Don't Care
 syn keyword p4Constant      _
-" Error
-syn keyword p4Constant      NoError PacketTooShort NoMatch StackOutOfBounds
-syn keyword p4Constant      OverwritingHeader HeaderTooShort ParserTiimeout
 " Boolean
 syn keyword p4Boolean       false true
 

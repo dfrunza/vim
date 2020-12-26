@@ -131,6 +131,3 @@ let g:indexer_ctagsJustAppendTagsAtFileSave=1
 
 let g:qf_window_bottom=1
 
-let g:easytags_auto_update=0
-let g:easytags_auto_highlight=1
-let g:easytags_file=''
