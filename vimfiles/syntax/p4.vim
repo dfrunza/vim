@@ -23,7 +23,6 @@ syn keyword p4ObjectKeyword   match_kind
 syn keyword p4ObjectKeyword   package parser
 syn keyword p4ObjectKeyword   state struct switch size
 syn keyword p4ObjectKeyword   table transition tuple typedef
-syn keyword p4ObjectKeyword   verify
 
 " Tables
 syn keyword p4ObjectAttributeKeyword  key actions default_action entries
