@@ -27,25 +27,25 @@ let s:border_fg   = "Black"
 " Normal should come first
 call s:HL("Normal",       {"bg": s:bg,      "fg": s:fg})
 call s:HL("NonText",      {"bg": s:bg,      "fg": s:fg})
-call s:HL("Statement",    {"bg": s:bg,      "fg": s:fg, "gui": "bold"}) " Blue4
-call s:HL("Keyword",      {"bg": s:bg,      "fg": s:fg, "gui": "bold"}) " Blue4
-call s:HL("StorageClass", {"bg": s:bg,      "fg": s:fg, "gui": "bold"}) " Blue4
+call s:HL("Statement",    {"bg": s:bg,      "fg": "Blue4"})
+call s:HL("Keyword",      {"bg": s:bg,      "fg": "Blue4"})
+call s:HL("StorageClass", {"bg": s:bg,      "fg": "Blue4"})
+call s:HL("Structure",    {"bg": s:bg,      "fg": "Blue4"})
 call s:HL("Identifier",   {"bg": s:bg,      "fg": s:fg})
 call s:HL("Variable",     {"bg": s:bg,      "fg": s:fg})
-call s:HL("Operator",     {"bg": s:bg,      "fg": s:fg}) " #007d7d
+call s:HL("Operator",     {"bg": s:bg,      "fg": s:fg})
 call s:HL("SyntaxChar",   {"bg": s:bg,      "fg": s:fg})
 call s:HL("Directory",    {"bg": s:bg,      "fg": "#000080"})
-call s:HL("Function",     {"bg": s:bg,      "fg": s:fg}) " Cyan4
-call s:HL("Type",         {"bg": s:bg,      "fg": s:fg}) " #396ac2
-call s:HL("pythonClassTag", {"bg": s:bg,      "fg": s:fg}) " #396ac2
-call s:HL("PreProc",      {"bg": s:bg,      "fg": s:fg}) " #660099
+call s:HL("Function",     {"bg": s:bg,      "fg": "Cyan4"})
+call s:HL("Type",         {"bg": s:bg,      "fg": s:fg})
+call s:HL("PreProc",      {"bg": s:bg,      "fg": "#660099"})
 call s:HL("Search",       {"bg": "Yellow",  "fg": s:fg})
 call s:HL("IncSearch",    {"bg": "Yellow",  "fg": s:fg, "gui": "reverse"})
 call s:HL("Comment",      {"bg": s:bg,      "fg": "#808080"})
-call s:HL("String",       {"bg": s:bg,      "fg": s:fg}) " #008000
-call s:HL("Constant",     {"bg": s:bg,      "fg": s:fg}) " #771111
-call s:HL("Special",      {"bg": s:bg,      "fg": s:fg}) " #660099
-call s:HL("SpecialKey",   {"bg": s:bg,      "fg": s:fg}) " #660099
+call s:HL("String",       {"bg": s:bg,      "fg": "#008000"})
+call s:HL("Constant",     {"bg": s:bg,      "fg": "#771111"})
+call s:HL("Special",      {"bg": s:bg,      "fg": "#660099"})
+call s:HL("SpecialKey",   {"bg": s:bg,      "fg": "#660099"})
 call s:HL("Visual",       {"bg": "#b6d6fd",  "fg": "NONE"})
 call s:HL("ErrorMsg",     {"bg": "Red",   "fg": "Yellow", "gui": "bold"})
 call s:HL("Error",        {"bg": "Red",   "fg": "Yellow", "gui": "bold"})
@@ -58,7 +58,7 @@ call s:HL("VertSplit",    {"bg": s:border_bg,   "fg": s:border_fg})
 call s:HL("Title",        {"bg": s:bg,          "fg": "#660099"})
 call s:HL("Pmenu",        {"bg": s:border_bg,   "fg": "#191970"})
 call s:HL("PmenuSel",     {"bg": "SlateBlue",   "fg": s:bg})
-call s:HL("CursorLine",   {"bg": "#fff4ce", "fg": "NONE", "gui": "NONE"})
+call s:HL("CursorLine",   {"bg": "#fff4ce"})
 call s:HL("Cursor",       {"bg": "Red",  "fg": s:bg, "gui": "bold"})
 call s:HL("Folded",       {"bg": s:bg, "fg": "#808080"})
 
