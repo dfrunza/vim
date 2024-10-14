@@ -1,0 +1,10 @@
+auto-pairs  1.32
+bufexplorer 7.4.9
+dfrank-util 1.0.2
+vimprj      1.11
+indexer     4.16
+kwbdi       n/a
+matchit     n/a
+starsearch  n/a
+surround    n/a
+l9          n/a
