@@ -3,6 +3,8 @@ bufexplorer 7.4.9
 dfrank-util 1.0.2
 vimprj      1.11
 indexer     4.16
+easy_tags   3.6.4 (modified)
+vim-misc    3.6.4
 kwbdi       n/a
 matchit     n/a
 starsearch  n/a
